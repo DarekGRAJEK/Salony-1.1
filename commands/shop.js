@@ -8,13 +8,13 @@ module.exports.run = async (bot, message, args) => {
   .setAuthor(message.author.username)
   .setColor("#f4e802")
   .setTitle("Server Shop")
-  .addField("Rank Admin", "100000000$")
-  .addBlankField("Rank Noob", "1$", true)
-  .addBlankField("Rank Vip", "100000$", true)
-  .addBlankField("Rank Gracz", "10$", true)
-  .addBlankField("Rank Dobry Gracz", "100$", true)
-  .addBlankField("Rank Youtuber", "6000$", true)
-  .addBlankField("Rank Moderator", "1000000$", true);
+  .addField("Rank Admin: 100000000$")
+  .addBlankField("Rank Noob: 1$", true)
+  .addBlankField("Rank Vip: 100000$", true)
+  .addBlankField("Rank Gracz: 10$", true)
+  .addBlankField("Rank Dobry: Gracz 100$", true)
+  .addBlankField("Rank Youtuber: 6000$", true)
+  .addBlankField("Rank Moderator: 1000000$", true);
 
   message.channel.send(coinEmbed).then(msg => {msg.delete(20000)});
 }
