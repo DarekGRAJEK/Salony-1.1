@@ -29,37 +29,37 @@ module.exports.run = async (bot, message, args) => {
           };
     }else if (mto == "Moderator" && uCoins == "1000000")
     {
-        await(rMember.addRole(gmoderator.id));
+        await(mBuy.addRole(gmoderator.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - "1000000"
           };
     }else if (mto == "Dobry Gracz" && uCoins == "100")
     {
-        await(rMember.addRole(gDobryGracz.id));
+        await(mBuy.addRole(gDobryGracz.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - "100"
           };
     }else if (mto == "Noob" && uCoins == "1")
     {
-        await(rMember.addRole(gNoob.id));
+        await(mBuy.addRole(gNoob.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - "1"
           };
     }else if (mto == "Gracz" && uCoins == "10")
     {
-        await(rMember.addRole(gGracz.id));
+        await(mBuy.addRole(gGracz.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - "10"
           };
     }else if (mto == "Vip" && uCoins == "100000")
     {
-        await(rMember.addRole(gVip.id));
+        await(mBuy.addRole(gVip.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - "100000"
           };
     }else if (mto == "Youtuber" && uCoins == "6000")
     {
-        await(rMember.addRole(gYotuber.id));
+        await(mBuy.addRole(gYotuber.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - "6000"
           };
