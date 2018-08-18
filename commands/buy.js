@@ -27,6 +27,9 @@ module.exports.run = async (bot, message, args) => {
           coins: 0
         };
     }
+    fs.writeFile("../coins.json", JSON.stringify(coins), (err) => {
+        if (err) console.log(err)
+    });
 
 
     if (mTo == "Admin" && uCoins == MAdmin)
@@ -35,63 +38,49 @@ module.exports.run = async (bot, message, args) => {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MAdmin
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+      
     }else if (mto == "Moderator" && uCoins == MMod)
     {
         await(mBuy.addRole(gmoderator.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MMod
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+        
     }else if (mto == "Dobry Gracz" && uCoins == MDbGracz)
     {
         await(mBuy.addRole(gDobryGracz.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MDbGracz
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+       
     }else if (mto == "Noob" && uCoins == MNoob)
     {
         await(mBuy.addRole(gNoob.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MNoob
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+        
     }else if (mto == "Gracz" && uCoins == MGracz)
     {
         await(mBuy.addRole(gGracz.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MGracz
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+        
     }else if (mto == "Vip" && uCoins == MVip)
     {
         await(mBuy.addRole(gVip.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MVip
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+        
     }else if (mto == "Youtuber" && uCoins == MYt)
     {
         await(mBuy.addRole(gYotuber.id));
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MYt
         };
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-          });
+        
     } else {
         message.replay("You do not have enough money");
     }
