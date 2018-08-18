@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 let coins = require("../coins.json");
+let fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
     await message.delete();
@@ -13,6 +14,13 @@ module.exports.run = async (bot, message, args) => {
     let gmoderator = message.guild.roles.find(`name`, "!!!Moderator!!!");
     let gYotuber = message.guild.roles.find(`name`, "Youtuber");
     let uCoins = coins[message.author.id].coins;
+    let MAdmin = "100000000";
+    let MMod = "1000000";
+    let MVip = "100000";
+    let MGracz = "10";
+    let MDbGracz = "100";
+    let MYt = "6000";
+    let MNoob = "1";
 
     if(!coins[message.author.id]){
         coins[message.author.id] = {
@@ -21,48 +29,69 @@ module.exports.run = async (bot, message, args) => {
     }
 
 
-    if (mTo == "Admin" && uCoins == "100000000")
+    if (mTo == "Admin" && uCoins == MAdmin)
     { 
         await(mBuy.addRole(gAdmin.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "100000000"
-          };
-    }else if (mto == "Moderator" && uCoins == "1000000")
+            coins: coins[message.author.id].coins - MAdmin
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
+    }else if (mto == "Moderator" && uCoins == MMod)
     {
         await(mBuy.addRole(gmoderator.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "1000000"
-          };
-    }else if (mto == "Dobry Gracz" && uCoins == "100")
+            coins: coins[message.author.id].coins - MMod
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
+    }else if (mto == "Dobry Gracz" && uCoins == MDbGracz)
     {
         await(mBuy.addRole(gDobryGracz.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "100"
-          };
-    }else if (mto == "Noob" && uCoins == "1")
+            coins: coins[message.author.id].coins - MDbGracz
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
+    }else if (mto == "Noob" && uCoins == MNoob)
     {
         await(mBuy.addRole(gNoob.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "1"
-          };
-    }else if (mto == "Gracz" && uCoins == "10")
+            coins: coins[message.author.id].coins - MNoob
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
+    }else if (mto == "Gracz" && uCoins == MGracz)
     {
         await(mBuy.addRole(gGracz.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "10"
-          };
-    }else if (mto == "Vip" && uCoins == "100000")
+            coins: coins[message.author.id].coins - MGracz
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
+    }else if (mto == "Vip" && uCoins == MVip)
     {
         await(mBuy.addRole(gVip.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "100000"
-          };
-    }else if (mto == "Youtuber" && uCoins == "6000")
+            coins: coins[message.author.id].coins - MVip
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
+    }else if (mto == "Youtuber" && uCoins == MYt)
     {
         await(mBuy.addRole(gYotuber.id));
         coins[message.author.id] = {
-            coins: coins[message.author.id].coins - "6000"
-          };
+            coins: coins[message.author.id].coins - MYt
+        };
+        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+          });
     } else {
         message.replay("You do not have enough money");
     }
