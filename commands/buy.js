@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-let coins = require("../coins.json");
+let coins = require("./coins.json");
 let fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
           coins: 0
         };
     }
-    fs.writeFile("../coins.json", JSON.stringify(coins), (err) => {
+    fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
         if (err) console.log(err)
     });
 
