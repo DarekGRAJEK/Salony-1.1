@@ -9,9 +9,9 @@ module.exports.run = async (bot, message, args) => {
     let gAdmin = message.guild.roles.find(`name`, "! ! ! Admin ! ! !");
     let gVip = message.guild.roles.find(`name`, "VIP");
     let gGracz = message.guild.roles.find(`name`, "! ! ! Gracz ! ! !");
-    let gDobryGracz = message.guild.roles.find(`name`, "! ! !dobry gracz ! ! !");
+    let gDobryGracz = message.guild.roles.find(`name`, "! ! ! dobry gracz ! ! !");
     let gNoob = message.guild.roles.find(`name`, "Noob");
-    let gmoderator = message.guild.roles.find(`name`, "! ! ! Moderator! ! !");
+    let gmoderator = message.guild.roles.find(`name`, "! ! ! Moderator ! ! !");
     let gYotuber = message.guild.roles.find(`name`, "Youtuber");
     let uCoins = coins[message.author.id].coins;
     let MAdmin = 100000000;
