@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
      } 
 
 
-    if (mto == "Admin" && uCoins == MAdmin)
+    if (mto == 'Admin' && uCoins == MAdmin)
     { 
         await(mBuy.addRole(gAdmin.id));
         if (uCoins == MAdmin) {
@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
            };
         } 
       
-    }else if (mto == "Moderator" && uCoins == MMod)
+    }else if (mto == 'Moderator' && uCoins == MMod)
     {
         await(mBuy.addRole(gmoderator.id));
         if ( uCoins == MMod) {
@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
             coins: coins[message.author.id].coins - MMod
         };
        } 
-    }else if (mto == "Dobry Gracz" && uCoins == MDbGracz)
+    }else if (mto == 'Dobry Gracz' && uCoins == MDbGracz)
     {
         await(mBuy.addRole(gDobryGracz.id));
         if (uCoins == MDbGracz) {
@@ -54,7 +54,7 @@ module.exports.run = async (bot, message, args) => {
             coins: coins[message.author.id].coins - MDbGracz
         };
       } 
-    }else if (mto == "Noob" && uCoins == MNoob)
+    }else if (mto == 'Noob' && uCoins == MNoob)
     {
         await(mBuy.addRole(gNoob.id));
         if (uCoins == MNoob) {
@@ -62,7 +62,7 @@ module.exports.run = async (bot, message, args) => {
             coins: coins[message.author.id].coins - MNoob
         };
        } 
-    }else if (mto == "Gracz" && uCoins == MGracz)
+    }else if (mto == 'Gracz' && uCoins == MGracz)
     {
         await(mBuy.addRole(gGracz.id));
         if (uCoins == MGracz) {
@@ -70,7 +70,7 @@ module.exports.run = async (bot, message, args) => {
             coins: coins[message.author.id].coins - MGracz
         };
        } 
-    }else if (mto == "Vip" && uCoins == MVip)
+    }else if (mto == 'Vip' && uCoins == MVip)
     {
         await(mBuy.addRole(gVip.id));
         if (uCoins == MVip) {
@@ -78,7 +78,7 @@ module.exports.run = async (bot, message, args) => {
             coins: coins[message.author.id].coins - MVip
         };
        } 
-    }else if (mto == "Youtuber" && uCoins == MYt)
+    }else if (mto == 'Youtuber' && uCoins == MYt)
     {
         await(mBuy.addRole(gYotuber.id));
         if (uCoins == MYt) {
