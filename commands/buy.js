@@ -14,13 +14,13 @@ module.exports.run = async (bot, message, args) => {
     let gmoderator = message.guild.roles.find(`name`, "!!!Moderator!!!");
     let gYotuber = message.guild.roles.find(`name`, "Youtuber");
     let uCoins = coins[message.author.id].coins;
-    let MAdmin = "100000000";
-    let MMod = "1000000";
-    let MVip = "100000";
-    let MGracz = "10";
-    let MDbGracz = "100";
-    let MYt = "6000";
-    let MNoob = "1";
+    var MAdmin = "100000000";
+    var MMod = "1000000";
+    var MVip = "100000";
+    var MGracz = "10";
+    vat MDbGracz = "100";
+    var MYt = "6000";
+    var MNoob = "1";
 
     if(!coins[message.author.id]){
         coins[message.author.id] = {
