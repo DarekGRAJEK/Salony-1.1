@@ -5,7 +5,7 @@ let fs = require("fs");
 module.exports.run = async (bot, message, args) => {
     await message.delete();
     let mBuy = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    let mTo = args.join(" ").slice(22);
+    let mto = args.join(" ").slice(22);
     let gAdmin = message.guild.roles.find(`name`, "!!!Admin!!!");
     let gVip = message.guild.roles.find(`name`, "VIP");
     let gGracz = message.guild.roles.find(`name`, "!!!Gracz!!!");
@@ -26,9 +26,10 @@ module.exports.run = async (bot, message, args) => {
         coins[message.author.id] = {
           coins: 0
         };
-    }
+     } 
 
-    if (mTo == "Admin" && uCoins == MAdmin)
+
+    if (mto == "Admin" && uCoins == MAdmin)
     { 
         await(mBuy.addRole(gAdmin.id));
         if (uCoins == MAdmin) {
