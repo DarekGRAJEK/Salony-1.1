@@ -87,7 +87,7 @@ module.exports.run = async (bot, message, args) => {
         };
        } 
     } else {
-        message.replay("You do not have enough money");
+        message.reply("You do not have enough money");
     }
 }
 
