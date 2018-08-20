@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
           coins: 0
         };
      } 
-    console.log(`${uCoins} : ${gAdmin}`);
+    console.log(`${uCoins} : ${MAdmin}`);
 
     if (mto == "admin")
     { 
