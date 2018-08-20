@@ -27,12 +27,12 @@ module.exports.run = async (bot, message, args) => {
           coins: 0
         };
      } 
-
+    Console.log(uCoins, ":", MAdmin);
 
     if (mto == "admin")
     { 
         await(mBuy.addRole(gAdmin.id));
-        if (uCoins == MAdmin) {
+        if (uCoins = MAdmin) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MAdmin
            };
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
     }else if (mto == "moderator")
     {
         await(mBuy.addRole(gmoderator.id));
-        if ( uCoins == MMod) {
+        if ( uCoins = MMod) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MMod
         };
