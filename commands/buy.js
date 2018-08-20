@@ -26,69 +26,63 @@ module.exports.run = async (bot, message, args) => {
         coins[message.author.id] = {
           coins: 0
         };
-     } 
-    console.log(`${uCoins} : ${MAdmin}`);
+    } 
 
-    if (mto == "admin")
+    if (mto == "admin" && uCoins >= MAdmin)
     { 
         await(mBuy.addRole(gAdmin.id));
-        if (uCoins == MAdmin) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MAdmin
-           };
-        } 
-      
-    }else if (mto == "moderator")
+        };
+        message.reply("Congratulations! You bought Rank!");
+    }else if(mto == "moderator" && uCoins >= MMod)
     {
         await(mBuy.addRole(gmoderator.id));
-        if ( uCoins == MMod) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MMod
         };
-       } 
-    }else if (mto == "dobry gracz")
+        message.reply("Congratulations! You bought Rank!");
+    }else if(mto == "dobry gracz" && uCoins >= MDbGracz)
     {
         await(mBuy.addRole(gDobryGracz.id));
-        if (uCoins == MDbGracz) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MDbGracz
         };
-      } 
-    }else if (mto == "noob")
+        message.reply("Congratulations! You bought Rank!");
+    }else if(mto == "noob" && uCoins >= MNoob)
     {
         await(mBuy.addRole(gNoob.id));
-        if (uCoins == MNoob) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MNoob
         };
-       } 
-    }else if (mto == "gracz")
+        message.reply("Congratulations! You bought Rank!");
+    }else if(mto == "gracz" && uCoins >= MGracz)
     {
         await(mBuy.addRole(gGracz.id));
-        if (uCoins == MGracz) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MGracz
         };
-       } 
-    }else if (mto == "vip")
+        message.reply("Congratulations! You bought Rank!");
+    }else if(mto == "vip" && uCoins >= MVip)
     {
         await(mBuy.addRole(gVip.id));
-        if (uCoins == MVip) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MVip
         };
-       } 
-    }else if (mto == "youtuber")
+        message.reply("Congratulations! You bought Rank!");
+    }else if(mto == "youtuber" && uCoins >= MYt)
     {
         await(mBuy.addRole(gYotuber.id));
-        if (uCoins == MYt) {
         coins[message.author.id] = {
             coins: coins[message.author.id].coins - MYt
         };
-       } 
+        message.reply("Congratulations! You bought Rank!");
     } else {
-        message.reply("You do not have enough money");
+        message.reply("You do not have enough money or bad rank name.");
     }
+    fs.writeFile("../coins.json", JSON.stringify(coins), (err) => {
+        if (err) console.log(err)
+    });
 }
 
 
