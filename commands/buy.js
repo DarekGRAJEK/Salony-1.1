@@ -4,7 +4,6 @@ let fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
     await message.delete();
-    let mBuy = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let mto = args.join(" ").slice(22);
     let gAdmin = message.guild.roles.find(`name`, "! ! ! Admin ! ! !");
     let gVip = message.guild.roles.find(`name`, "VIP");
