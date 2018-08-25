@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   let tails = "tails";
   let PResult = replies[result]
   console.log(`${jmessege} ; ${eagle} ; ${PResult}`);
-  if (jmessege != eagle || jmessege != tails) return message.channel.send("Please write eagle or tails.");
+  if (jmessege != eagle && jmessege != tails) return message.channel.send("Please write eagle or tails.");
   let emessege = args.slice(1).join(" ");
   let ert = 10;
   console.log(`${ert} | ${emessege}`);
