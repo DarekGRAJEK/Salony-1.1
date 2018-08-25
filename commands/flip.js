@@ -11,11 +11,13 @@ module.exports.run = async (bot, message, args) => {
   let jmessege = args.join(" ");
   let eagle = "eagle";
   let tails = "tails";
+  console.log(`${jmessege} ; ${eagle} ; ${result}`);
   if (eagle != jmessege || jmessege != tails) return message.channel.send("Please write eagle or tails.");
   let emessege = args.join();
   let ert = 10;
+  console.log(`${ert} | ${emessege}`);
   if (ert > emessege) return message.channel.send("Please write number greater or equal than 10!");
-  console.log(`${jmessege} ; ${eagle} ; ${result} | ${emessege}`);
+ 
   
   if (result == jmessege)
   {
