@@ -9,12 +9,12 @@ module.exports.run = async (bot, message, args) => {
 
   let result = Math.floor((Math.random()* replies.length));
   let jmessege = args.join(" ");
-  if (eagle != jmessege || jmessege != tails) return message.channel.send("Please write eagle or tails.");
-  let emessege = args.join();
-  if (ert > emessege) return message.channel.send("Please write number greater or equal than 10!");
   let eagle = "eagle";
   let tails = "tails";
+  if (eagle != jmessege || jmessege != tails) return message.channel.send("Please write eagle or tails.");
+  let emessege = args.join();
   let ert = 10;
+  if (ert > emessege) return message.channel.send("Please write number greater or equal than 10!");
   console.log(`${jmessege} ; ${eagle} ; ${result} | ${emessege}`);
   
   if (result == jmessege)
