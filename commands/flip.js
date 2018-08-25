@@ -10,10 +10,10 @@ module.exports.run = async (bot, message, args) => {
   let result = Math.floor((Math.random()* replies.length));
   let jmessege = args.join(" ");
   let emessege = args.join(" ");
+  console.log(`${jmessege} ; ${eagle} ; ${result} | ${emessege}`)
   let eagle = "eagle";
   let tails = "tails";
   let ert = "10";
-  let coin = 0;
   if (eagle != jmessege || jmessege != tails) return message.channel.send("Please write eagle or tails.");
   if (ert > emessege) return message.channel.send("Please write number greater or equal than 10!");
   
