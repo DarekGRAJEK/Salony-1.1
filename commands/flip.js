@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   let replies = ["tails", "eagle"];
 
   let result = Math.floor((Math.random()* replies.length));
-  let jmessege = args.join(" ").slice(1);
+  let jmessege = args.join(" ").slice(6);
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
