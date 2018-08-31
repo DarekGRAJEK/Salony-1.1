@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   let annmessage = args.join(" ");
   
       let reportEmbed = new Discord.RichEmbed()
-    .setTitle(`Ogłoszenie - ${message.author}`)
+    .setTitle(`Ogłoszenie - ${message.author.username}`)
     .setColor("#00FF00")
     .setTimestamp()
     .setDescription(annmessage);
