@@ -10,8 +10,8 @@ module.exports.run = async (bot, message, args) => {
       let reportEmbed = new Discord.RichEmbed()
     .setTitle(`Ogłoszenie - ${message.author.username}`)
     .setColor("#00FF00")
-    .setAuthor(message.author.bot, message.author.avatar)
-    .setTimestamp(data)
+    .setAuthor(bot.user.username, message.author.avatar)
+    .setTimestamp(message.createdAt)
     .setDescription(annmessage);
 
     let reportschannel = message.guild.channels.find(`name`, `ogłoszenia`);
