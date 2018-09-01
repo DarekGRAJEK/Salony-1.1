@@ -77,10 +77,11 @@ bot.on("message", async message => {
 
   let curxp = xp[message.author.id].xp;
   let curlvl = xp[message.author.id].level;
-  let nxtLvl = xp[message.author.id].level * 450;
+  let nxtLvl = xp[message.author.id].level * 346;
   xp[message.author.id].xp =  curxp + xpAdd;
   if(nxtLvl <= xp[message.author.id].xp){
     xp[message.author.id].level = curlvl + 1;
+    xp[message.author.id].xp = 0;
     let lvlup = new Discord.RichEmbed()
     .setTitle("Level Up!")
     .setColor(purple)
