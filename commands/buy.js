@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
+const fs = require("fs");
 let coins = require("../coins.json");
-let fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
     await message.delete();
-    let mto = args.join(" ").slice(22);
+    let mto = args.join(" ");
     let mbuy = message.author;
     let gAdmin = message.guild.roles.find(`name`, "! ! ! Admin ! ! !");
     let gVip = message.guild.roles.find(`name`, "VIP");
