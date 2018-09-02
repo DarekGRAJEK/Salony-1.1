@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const errors = require("../utility/error.js");
+const fs = require("fs");
 let coins = require("../coins.json");
+let bets = require("../bets.json");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -8,42 +10,38 @@ module.exports.run = async (bot, message, args) => {
   let replies = ["tails", "eagle"];
 
   let result = Math.floor((Math.random()* replies.length));
-  let emessege = args.slice(1).join(" ");
+  let PlaceBet = bets[message.author.id].bet;
   let jmessege = args.join(" ");
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
+  let uCoins = coins[message.author.id].coins;
   console.log(`${jmessege} ; ${eagle} ; ${PResult}`);
-  if (jmessege != eagle && jmessege != tails) return message.channel.send("Please write eagle or tails.");
-  let ert = 10;
-  console.log(`${ert} | ${emessege}`);
-  if (ert > emessege) return message.channel.send("Please write number greater or equal than 10!");
- 
+  if (jmessege == eagle || jmessege == tails) return message.channel.send("Please write eagle or tails.");
+  let ert = 9;
+  console.log(`${ert} | ${PlaceBet}`);
+  if (ert >= PlaceBet) return message.channel.send("Please write number greater or equal than 10!");
+  if (uCoins < PlaceBet) return message.replay("You don't have any money");
   
   if (PResult == jmessege)
   {
-    let coin = emessege * 2;
-    coins[message.author.id] = {
-        coins: coins[message.author.id].coins + coin
-        
-    };
+    let wpo = PlaceBet * 2;
+    uCoins = uCoins + wpo;
 
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor("#FF0000")
-    .addField("Placed by you", question)
+    .addField("Placed by you", jmessage)
     .addField("Drawn", replies[result])
     .addField("Win/Lose", "WIN!!!")
     message.channel.send(Winembed);
   } else {
-    coins[message.author.id] = {
-        coins: coins[message.author.id].coins + emessege
-    };
+    uCoins = uCoins - PlaceBet;
 
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor("#FFFFFF")
-    .addField("Placed by you", question)
+    .addField("Placed by you", jmessage)
     .addField("Drawn", replies[result])
     .addField('Win/Lose', "LOSE!!!")
     message.channel.send(Loseembed);

@@ -8,7 +8,8 @@ let botembed = new Discord.RichEmbed()
 .setThumbnail(bicon)
 .addField("Bot Name", bot.user.username)
 .addField("Prefix (conventional) is", "**$**")
-.addField("Created by", "DarekGRAJEK") 
+.addField("Created by", "DarekGRAJEK")
+.addField("Version:", "1.4.9");
 
 return message.send(botembed);
 
