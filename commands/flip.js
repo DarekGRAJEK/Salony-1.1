@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor("#FF0000")
-    .addField("Placed by you", jmessage)
+    .addField("Placed by you", jmessege)
     .addField("Drawn", replies[result])
     .addField("Win/Lose", "WIN!!!")
     message.channel.send(Winembed);
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor("#FFFFFF")
-    .addField("Placed by you", jmessage)
+    .addField("Placed by you", jmessege)
     .addField("Drawn", replies[result])
     .addField('Win/Lose', "LOSE!!!")
     message.channel.send(Loseembed);
