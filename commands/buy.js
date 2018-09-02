@@ -5,7 +5,7 @@ let coins = require("../coins.json");
 module.exports.run = async (bot, message, args) => {
     await message.delete();
     let mto = args.join(" ");
-    let mbuy = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    let mBuy = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     let gAdmin = message.guild.roles.find(`name`, "! ! ! Admin ! ! !");
     let gVip = message.guild.roles.find(`name`, "VIP");
     let gGracz = message.guild.roles.find(`name`, "! ! ! Gracz ! ! !");
