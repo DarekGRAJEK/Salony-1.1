@@ -67,7 +67,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
         message.reply("You do not have enough money or bad rank name.");
     }
-    fs.writeFile("../coins.json", JSON.stringify(coins), (err) => {
+    fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
         if (err) console.log(err)
     });
 }
