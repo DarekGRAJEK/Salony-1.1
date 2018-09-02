@@ -97,7 +97,7 @@ bot.on("message", async message => {
   if(!bets[message.author.id]){
     bets[message.author.id] = {
       bet: 10
-    });
+    };
   }
   fs.writeFile("./bets.json", JSON.stringify(xp), (err) => {
     if(err) console.log(err)
