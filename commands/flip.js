@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   let PResult = replies[result]
   let uCoins = coins[message.author.id].coins;
   console.log(`${jmessege} ; ${eagle} ; ${PResult}`);
-  if (jmessege == tails && jmessege != eagle || jmessege != tails && jmessege == eagle) return message.channel.send("Please write eagle or tails.");
+  if (jmessege == tails || jmessege != eagle && jmessege != tails || jmessege == eagle) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
   console.log(`${ert} | ${PlaceBet}`);
   if (ert >= PlaceBet) return message.channel.send("Please write number greater or equal than 10! ($setbet)");
