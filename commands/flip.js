@@ -8,16 +8,15 @@ module.exports.run = async (bot, message, args) => {
 
   await message.delete();
   let replies = ["tails", "eagle"];
-
+  let jmessege = args.join(" ");
   let result = Math.floor((Math.random()* replies.length));
   let PlaceBet = bets[message.author.id].bet;
-  let jmessege = args.join(" ");
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
   let uCoins = coins[message.author.id].coins;
   console.log(`${jmessege} ; ${eagle} ; ${PResult}`);
-  if (jmessege == eagle || jmessege == tails) return message.channel.send("Please write eagle or tails.");
+  if (jmessege != eagle || jmessege != tails) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
   console.log(`${ert} | ${PlaceBet}`);
   if (ert >= PlaceBet) return message.channel.send("Please write number greater or equal than 10!");
