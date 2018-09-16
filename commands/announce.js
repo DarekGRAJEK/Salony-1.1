@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`Ogłoszenie - ${message.author.username}`)
     .setThumbnail(message.author.avatarURL)
     .setColor("#00FF00")
+    .setFooter(bot.user.username, bot.user.avatarURL) 
     .setTimestamp(message.createdAt)
     .setDescription(annmessage);
 
