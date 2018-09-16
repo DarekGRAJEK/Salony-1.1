@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-let bicon = bot.user.displayAvatarURL;
+let bicon = bot.user.avatarURL;
 let botembed = new Discord.RichEmbed()
 .setDescription("Bot Information")
 .setColor("#01330e")
@@ -9,7 +9,7 @@ let botembed = new Discord.RichEmbed()
 .addField("Bot Name", bot.user.username)
 .addField("Prefix (conventional) is", "**$**")
 .addField("Created by", "DarekGRAJEK")
-.addField("Version:", "1.4.9");
+.addField("Version:", "1.5.0");
 
 return message.send(botembed);
 
