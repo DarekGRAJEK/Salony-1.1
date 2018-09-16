@@ -11,7 +11,7 @@ let botembed = new Discord.RichEmbed()
 .addField("Created by", "DarekGRAJEK")
 .addField("Version:", "1.5.0");
 
-return message.send(botembed);
+message.channel.send(botembed);
 
 }
  module.exports.help = {
