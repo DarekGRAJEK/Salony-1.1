@@ -38,7 +38,7 @@ bot.on("guildMemberAdd", async member => {
 
   console.log("User Joined!!!");
 
-  let channel = member.guild.channel.find(`name`, "logi-publiczne");
+  let channel = member.guild.channels.find(`name`, "logi-publiczne");
   channel.send(`${member} wbił na serwer!`);
 
 });
@@ -47,7 +47,7 @@ bot.on("guildMemberRemove", async member => {
 
   console.log("User Leave!!!");
 
-  let channel = member.guild.channel.find(`name`, "logi-publiczne");
+  let channel = member.guild.channels.find(`name`, "logi-publiczne");
   channel.send(`${member} wyszedł z serwera!`);
 
 });
