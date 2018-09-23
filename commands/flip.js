@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
   if (PResult == jmessege)
   {
     let wpo = PlaceBet * 2;
-    uCoins = uCoins + wpo;
+    coins[message.author.id].coins = uCoins + wpo;
 
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
@@ -40,9 +40,10 @@ module.exports.run = async (bot, message, args) => {
     .addField("Placed by you", jmessege)
     .addField("Drawn", replies[result])
     .addField("Win/Lose", "WIN!!!")
+
     message.channel.send(Winembed);
   } else {
-    uCoins = uCoins - PlaceBet;
+    coins[message.author.id].coins = uCoins - PlaceBet;
 
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
