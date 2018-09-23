@@ -4,6 +4,11 @@ let coins = require("../coins.json");
 
 module.exports.run = async (bot, message, args) => {
     await message.delete();
+    if(args[0] == "help"){
+        message.reply("Usage: !buy <item name>");
+        return;
+    }
+    
     let mto = args.join(" ");
     let mBuy = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     let gAdmin = message.guild.roles.find(`name`, "! ! ! Admin ! ! !");

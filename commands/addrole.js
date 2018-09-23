@@ -4,6 +4,10 @@ const errors = require("../utility/error.js")
 module.exports.run = async (bot, message, args) => {
 
   //!addrole @andrew Dog Person
+  if(args[0] == "help"){
+    message.reply("Usage: !addrole <user> <role name>");
+    return;
+  }
   await message.delete();
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return errors.noPerms(message, "MANAGE_MEBMERS")
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);

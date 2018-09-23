@@ -7,6 +7,13 @@ let bets = require("../bets.json");
 module.exports.run = async (bot, message, args) => {
 
   await message.delete();
+  let Color = Math.floor(Math.random() * 999999) + 1;
+  let random = "#" + Color;
+  if(args[0] == "help"){
+    message.reply("Usage: !flip <Your DiscordName#Tag>");
+    return;
+  }
+
   let replies = ["tails", "eagle"];
   let jmessege = args.join(" ");
   let result = Math.floor((Math.random()* replies.length));
@@ -29,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
-    .setColor("#FF0000")
+    .setColor(random)
     .addField("Placed by you", jmessege)
     .addField("Drawn", replies[result])
     .addField("Win/Lose", "WIN!!!")
@@ -39,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
 
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
-    .setColor("#FFFFFF")
+    .setColor(random)
     .addField("Placed by you", jmessege)
     .addField("Drawn", replies[result])
     .addField('Win/Lose', "LOSE!!!")

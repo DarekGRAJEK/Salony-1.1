@@ -6,6 +6,10 @@ const errors = require("../utility/error.js")
 module.exports.run = async (bot, message, args) => {
 
   //!tempmute @user 1s/m/h/d
+  if(args[0] == "help"){
+    message.reply("Usage: !tempmute <nick> <1s/m/h/d>");
+    return;
+  }
 
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return errors.cantfindUser(channel);

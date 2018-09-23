@@ -7,6 +7,11 @@ let coins = require("../coins.json");
 module.exports.run = async (bot, message, args) => {
   //!pay @isatisfied 59345
   await message.delete();
+  if(args[0] == "help"){
+    message.reply("Usage: !pay <nick> <amounce>");
+    return;
+  }
+
   if(!coins[message.author.id]){
     return message.reply("You do not have any money!")
   }

@@ -8,10 +8,17 @@ module.exports.run = async (bot, message, args) => {
   let kReason = args.join(" ").slice(22);
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES")
   if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+  let Color = Math.floor(Math.random() * 999999) + 1;
+  let random = "#" + Color;
+  if(args[0] == "help"){
+    message.reply("Usage: !kick <nick> <reason>");
+    return;
+  }
+
 
   let kickEmbed = new Discord.RichEmbed()
   .setDescription("~Kick~")
-  .setColor("#e56b00")
+  .setColor(random)
   .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
   .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
   .addField("Kicked In", message.channel)

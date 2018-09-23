@@ -13,6 +13,8 @@ module.exports.run = async (bot, message, args) => {
       bet: 10
     };
   }
+  let Color = Math.floor(Math.random() * 999999) + 1;
+  let random = "#" + Color;
 
   let uCoins = bets[message.author.id].bet;
 
@@ -20,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
 
   let coinEmbed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
-  .setColor("#00FF00")
+  .setColor(random)
   .setDescription("You new bet in arcades.")
   .addField("💸", uCoins);
 

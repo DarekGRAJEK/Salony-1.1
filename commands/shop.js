@@ -2,10 +2,17 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
   //!shop
+  if(args[0] == "help"){
+    message.reply("Usage: !shop");
+    return;
+  }
+
   await message.delete();
+  let Color = Math.floor(Math.random() * 999999) + 1;
+  let random = "#" + Color;
 
   let coinEmbed = new Discord.RichEmbed()
-  .setColor("#f4e802")
+  .setColor(random)
   .setTitle("Server Shop - W.I.P.")
   //.addField("Rank Admin:", "100000000$")
   //.addField("Rank Noob:", "1$")

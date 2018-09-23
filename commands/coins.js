@@ -9,13 +9,20 @@ module.exports.run = async (bot, message, args) => {
       coins: 0
     };
   }
+  if(args[0] == "help"){
+    message.reply("Usage: !coins");
+    return;
+  }
+
 
   let uCoins = coins[message.author.id].coins;
 
+  let Color = Math.floor(Math.random() * 999999) + 1;
+  let random = "#" + Color;
 
   let coinEmbed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
-  .setColor("#00FF00")
+  .setColor(random)
   .addField("💸", uCoins);
 
   message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
