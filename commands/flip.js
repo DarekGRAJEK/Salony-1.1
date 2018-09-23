@@ -10,10 +10,10 @@ module.exports.run = async (bot, message, args) => {
   let Color = Math.floor(Math.random() * 999999) + 1;
   let random = "#" + Color;
   if(args[0] == "help"){
-    message.reply("Usage: !flip <Your DiscordName#Tag>");
+    message.reply("Usage: !flip <tails/eagle>");
     return;
   }
-
+  
   let replies = ["tails", "eagle"];
   let jmessege = args.join(" ");
   let result = Math.floor((Math.random()* replies.length));
@@ -22,6 +22,9 @@ module.exports.run = async (bot, message, args) => {
   let tails = "tails";
   let PResult = replies[result]
   let uCoins = coins[message.author.id].coins;
+  let lost = uCoins - PlaceBet;
+  let get = uCoins + PlaceBet;
+  console.log(`${get} || ${lost}`)
   console.log(`${jmessege} ; ${eagle} ; ${PResult}`);
   if (jmessege == tails && jmessege != eagle && jmessege != tails && jmessege == eagle) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
