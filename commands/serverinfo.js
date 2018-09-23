@@ -2,9 +2,12 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 let sicon = message.guild.avatarURL;
+
+let Color = Math.floor(Math.random() * 999999) + 1;
+let random = "#" + Color;
       let serverembed = new Discord.RichEmbed()
       .setDescription("Server Information")
-      .setColor("#ffff00")
+      .setColor(random)
       .setThumbnail(sicon)
       .addField("Server Name", message.guild.name)
       .addField("Created On", message.guild.createdAt)
