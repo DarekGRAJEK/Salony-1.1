@@ -23,9 +23,7 @@ module.exports.run = async (bot, message, args) => {
   let PResult = replies[result]
   let uCoins = coins[message.author.id].coins;
   let lost = uCoins - PlaceBet;
-  let get =  uCoins + PlaceBet;
-  console.log(`${get} || ${lost}`)
-  console.log(`${jmessege} ; ${eagle} ; ${PResult}`);
+  console.log(`${jmessege} ; ${PResult}`);
   if (jmessege != tails && jmessege != eagle) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
   console.log(`${ert} | ${PlaceBet}`);
@@ -35,7 +33,9 @@ module.exports.run = async (bot, message, args) => {
   if (PResult == jmessege)
   {
     let wpo = PlaceBet * 2;
-    coins[message.author.id].coins = uCoins + wpo;
+    coins[message.author.id] = {
+      coins: coins[message.author.id].coins + wpo
+    };
 
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
