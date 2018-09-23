@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
   message.delete();
   if(args[0] == "help"){
-    message.reply("Usage: !ogl <text>");
+    message.reply("Usage: !olg <text>");
     return;
   }
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
