@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
   let Color = Math.floor(Math.random() * 999999) + 1;
   let random = "#" + Color;
   coins[message.author.id] = {
-    coins: coins[message.author.id].coins + money
+    coins: coins[message.author.id].coins + parseInt(money)
   };
 
   let coinEmbed = new Discord.RichEmbed()
