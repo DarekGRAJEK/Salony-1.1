@@ -5,7 +5,7 @@ let fs = require("fs");
 module.exports.run = async (bot, message, args) => {
   //!coins
   await message.delete();
-  let money = args.join(" ");
+  let money = args.join();
   if(!coins[message.author.id]){
     coins[message.author.id] = {
       coins: 0
