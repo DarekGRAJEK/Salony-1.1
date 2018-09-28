@@ -59,14 +59,14 @@ module.exports.run = async (bot, message, args) => {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle("Arcade Help Menu")
         .setDescription("Menu with Server Games")
-        .addField("flip", "For get some money");
+        .addField("flip", "For get some money.");
         message.channel.send(helpEmbed).then(msg => {msg.delete(20000)});
 
     } else if (args[0] == "Fun" || args[0] == "fun") {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle("Fun Help Menu")
         .setDescription("Menu for Fun")
-        .addField("8ball", "For divination");
+        .addField("8ball", "For divination.");
         message.channel.send(helpEmbed).then(msg => {msg.delete(20000)});
 
     } else {
