@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const errors = require("../utility/error.js");
 const fs = require("fs");
 let coins = require("../coins.json");
-let bets = require("../bets.json");
 
 module.exports.run = async (bot, message, args) => {
 
