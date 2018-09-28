@@ -5,7 +5,6 @@ const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 let coins = require("./coins.json");
 let xp = require("./xp.json");
-let bets = require("./bets.json");
 let purple = botconfig.purple;
 let cooldown = new Set();
 let cdseconds = 5;
@@ -110,16 +109,7 @@ bot.on("message", async message => {
   fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
     if(err) console.log(err)
   });
-  
-  if(!bets[message.author.id]){
-    bets[message.author.id] = {
-      bet: 10
-    };
-  }
-  fs.writeFile("./bets.json", JSON.stringify(xp), (err) => {
-    if(err) console.log(err)
-  });
-  
+    
   let prefix = botconfig.prefix;
   if(!message.content.startsWith(prefix)) return;
   if(cooldown.has(message.author.id)){
