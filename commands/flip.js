@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
-  let x = 0;
+  let x;
   let uCoins = coins[message.author.id].coins;
   console.log(`${args[0]} ; ${PResult}`);
   if (args[0] != tails && args[0] != eagle) return message.channel.send("Please write eagle or tails.");
@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
   if (args[1] >= 1001) {x = 1.09}
   if (PResult == args[0])
   {
-    let wpo = PlaceBet * x;
+    let wpo = parseInt(PlaceBet) * x;
     coins[message.author.id] = {
       coins: coins[message.author.id].coins + parseInt(wpo)
     };
