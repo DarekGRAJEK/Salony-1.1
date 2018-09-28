@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
   if (ert >= args[1]) return message.channel.send("Please write number greater or equal than 10!");
   if (uCoins < args[1]) return message.replay("You don't have money");
   
-  if (PResult == jmessege)
+  if (PResult == args[0])
   {
     let wpo = PlaceBet * 2;
     coins[message.author.id] = {
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor(random)
-    .addField("Placed by you", jmessege)
+    .addField("Placed by you", args[0])
     .addField("Drawn", replies[result])
     .addField("Win/Lose", "WIN!!!")
 
@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor(random)
-    .addField("Placed by you", jmessege)
+    .addField("Placed by you", args[0])
     .addField("Drawn", replies[result])
     .addField('Win/Lose', "LOSE!!!")
     message.channel.send(Loseembed);
