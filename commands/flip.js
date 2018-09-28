@@ -15,7 +15,6 @@ module.exports.run = async (bot, message, args) => {
   }
   
   let replies = ["tails", "eagle"];
-  let jmessege = args.join(" ");
   let result = Math.floor((Math.random()* replies.length));
   let PlaceBet = bets[message.author.id].bet;
   let eagle = "eagle";
@@ -24,17 +23,17 @@ module.exports.run = async (bot, message, args) => {
   let uCoins = coins[message.author.id].coins;
   let lost = uCoins - PlaceBet;
   console.log(`${jmessege} ; ${PResult}`);
-  if (jmessege != tails && jmessege != eagle) return message.channel.send("Please write eagle or tails.");
+  if (args[0] != tails && args[0] != eagle) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
   console.log(`${ert} | ${PlaceBet}`);
-  if (ert >= PlaceBet) return message.channel.send("Please write number greater or equal than 10! ($setbet)");
-  if (uCoins < PlaceBet) return message.replay("You don't have money");
+  if (ert >= args[1]) return message.channel.send("Please write number greater or equal than 10!");
+  if (uCoins < args[1]) return message.replay("You don't have money");
   
   if (PResult == jmessege)
   {
     let wpo = PlaceBet * 2;
     coins[message.author.id] = {
-      coins: coins[message.author.id].coins + wpo
+      coins: coins[message.author.id].coins + parseInt(wpo)
     };
 
     let Winembed = new Discord.RichEmbed()
@@ -46,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(Winembed);
   } else {
-    coins[message.author.id].coins = uCoins - PlaceBet;
+    coins[message.author.id].coins = uCoins - parseInt(PlaceBet);
 
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
