@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     }
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
-
+    if (!args[0]) {
     let inventory = new Discord.RichEmbed()
     .setTitle("Iventory")
     .setDescription("Your inventory.")
