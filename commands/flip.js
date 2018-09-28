@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
   let ert = 9;
   console.log(`${ert} | ${PlaceBet}`);
   if (ert >= args[1]) return message.channel.send("Please write number greater or equal than 10!");
-  if (uCoins < args[1]) return message.replay("You don't have money");
+  if (uCoins < args[1]) return message.reply("You don't have money");
   
   if (PResult == args[0])
   {
