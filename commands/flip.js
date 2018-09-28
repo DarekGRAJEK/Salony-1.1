@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   
   let replies = ["tails", "eagle"];
   let result = Math.floor((Math.random()* replies.length));
-  let PlaceBet = args[0]
+  let PlaceBet = args[0];
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
