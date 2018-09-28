@@ -28,9 +28,9 @@ module.exports.run = async (bot, message, args) => {
 
   message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
 
-    fs.writeFile("./bets.json", JSON.stringify(coins), (err) => {
+    fs.writeFile("./bets.json", JSON.stringify(bet), (err) => {
         if (err) console.log(err)
-    })
+    });
 }
 
 module.exports.help = {
