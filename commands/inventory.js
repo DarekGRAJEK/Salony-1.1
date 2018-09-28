@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
     //             \/ exclusive items \/
     } else if (args[0] == "ex" || args[0] == "Ex") {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Exclusive items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("???", "???")
@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
         //         \/ Limited items \/
     } else if (args[0] == "lm" || args[0] == "Lm") {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Limited items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("Podpis CreazyPL", invt[message.author.id].signatureCPL)
@@ -67,7 +67,7 @@ module.exports.run = async (bot, message, args) => {
         //         \/ Legendery items \/
     } else if (args[0] == "le" || args[0 == "Le"]) {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Legendary items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("Diamond", invt[message.author.id].diamond)
@@ -81,7 +81,7 @@ module.exports.run = async (bot, message, args) => {
         //         \/ Epic items \/
     } else if (args[0] == "ec" || args[0] == "Ec") {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Epic items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("Titan", invt[message.author.id].titan)
@@ -95,7 +95,7 @@ module.exports.run = async (bot, message, args) => {
         //         \/ Rare items \/
     } else if (args[0] == "re" || args[0] == "Re") {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Rare items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("Machete", invt[message.author.id].machete)
@@ -109,7 +109,7 @@ module.exports.run = async (bot, message, args) => {
         //         \/ Uncommon items \/
     } else if (args[0] == "uc" || args[0] == "Uc") {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Uncommon items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("quarc", invt[message.author.id].quarc)
@@ -123,7 +123,7 @@ module.exports.run = async (bot, message, args) => {
         //         \/ Common items \/
     } else if (args[0] == "cm" || args[0] == "Cm") {
         let inventory = new Discord.RichEmbed()
-        .setTitle("Iventory")
+        .setTitle("Common items")
         .setDescription("Your inventory.")
         .setColor(random)
         .addField("Iron", invt[message.author.id].iron)
