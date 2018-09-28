@@ -15,12 +15,12 @@ module.exports.run = async (bot, message, args) => {
   
   let replies = ["tails", "eagle"];
   let result = Math.floor((Math.random()* replies.length));
-  let PlaceBet = args[0];
+  let PlaceBet = args[1];
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
   let uCoins = coins[message.author.id].coins;
-  console.log(`${jmessege} ; ${PResult}`);
+  console.log(`${args[0]} ; ${PResult}`);
   if (args[0] != tails && args[0] != eagle) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
   console.log(`${ert} | ${PlaceBet}`);
