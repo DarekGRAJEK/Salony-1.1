@@ -27,12 +27,12 @@ module.exports.run = async (bot, message, args) => {
   console.log(`${ert} | ${PlaceBet}`);
   if (ert >= args[1]) return message.channel.send("Please write number greater or equal than 10!");
   if (uCoins < args[1]) return message.reply("You don't have money");
-  if (args[1] <= 20) {new x = 1.79}
-  if (args[1] <= 50 && args[1] > 20) {new x = 1.594}
-  if (args[1] <= 75 && args[1] > 50) {new x = 1.456}
-  if (args[1] <= 100 && args[1] > 75) {new x = 1.33}
-  if (args[1] <= 1000 && args[1] > 100) {new x = 1.139}
-  if (args[1] >= 1001) {new x = 1.09}
+  if (args[1] <= 20) {x = 1.79}
+  if (args[1] <= 50 && args[1] > 20) {x = 1.594}
+  if (args[1] <= 75 && args[1] > 50) {x = 1.456}
+  if (args[1] <= 100 && args[1] > 75) {x = 1.33}
+  if (args[1] <= 1000 && args[1] > 100) {x = 1.139}
+  if (args[1] >= 1001) {x = 1.09}
   if (PResult == args[0])
   {
     let wpo = PlaceBet * x;
