@@ -28,6 +28,11 @@ module.exports.run = async (bot, message, args) => {
     .addField("💸 Get:", args[0]);
    message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
   } else {
+    if(!coins[rUser.id]){
+      coins[rUser.id] = {
+        coins: 0
+      };
+    }
     coins[rUser.id] = {
       coins: coins[rUser.id].coins + parseInt(args[0])
     };
@@ -40,8 +45,6 @@ module.exports.run = async (bot, message, args) => {
   fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
     if(err) cosole.log(err)
   });
-
-  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
 
 }
 
