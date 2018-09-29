@@ -18,7 +18,15 @@ module.exports.run = async (bot, message, args) => {
             steel: 0, // Rare
             electrium: 0, // Rare
             quarc: 0, // Uncommon
-            signatureCPL: 0 // Limited
+            signatureCPL: 0, // Limited
+            tinore: 0, //ore
+            copperore: 0, //ore
+            ironore: 0, //ore
+            goldore: 0, //ore
+            quarcore: 0, //ore
+            titanore: 0, //ore
+            rock: 0,  //ore
+            stone: 0 //ore
         };
     }
     let Color = Math.floor(Math.random() * 999999) + 1;
@@ -34,7 +42,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("Epic items", "$inv ec")
     .addField("Rare items", "$inv re")
     .addField("Uncommon items", "$inv uc")
-    .addField("Common items", "$inv cm");
+    .addField("Common items", "$inv cm")
+    .addField("Ores", "$inv ore");
     message.channel.send(inventory).then(msg => {msg.delete(10000)});
     //             \/ exclusive items \/
     } else if (args[0] == "ex" || args[0] == "Ex") {
@@ -130,9 +139,22 @@ module.exports.run = async (bot, message, args) => {
         .addField("Tin", invt[message.author.id].tin)
         .addField("Copper", invt[message.author.id].copper)
         .addField("Coal", invt[message.author.id].coal)
-        .addField("???", "???")
+        .addField("Stone", invt[message.author.id].stone)
         .addField("???", "???")
         .addField("???", "???");
+        message.channel.send(inventory).then(msg => {msg.delete(10000)});
+    } else if (args[0] == "ore" || args[0] == "Ore") {
+        let inventory = new Discord.RichEmbed()
+        .setTitle("Ores")
+        .setDescription("Your inventory.")
+        .setColor(random)
+        .addField("Iron ore ",  invt[message.author.id].ironore)
+        .addField("Tin ore",  invt[message.author.id].tinore)
+        .addField("Copper ore",  invt[message.author.id].copperore)
+        .addField("Gold ore",  invt[message.author.id].goldore)
+        .addField("Titan ore", invt[message.author.id].titanore)
+        .addField("Quarc ore", invt[message.author.id].quarcore)
+        .addField("Rock", invt[message.author.id].rock);
         message.channel.send(inventory).then(msg => {msg.delete(10000)});
     }
 
