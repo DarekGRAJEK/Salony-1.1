@@ -39,7 +39,8 @@ module.exports.run = async (bot, message, args) => {
     let coinEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setColor(random)
-    .addField("💸 Get:", args[0]);
+    .addField("💸 Give:", args[0])
+    .addField("To:", rUser);
     message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
   }
   fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {

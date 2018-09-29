@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     let random = "#" + Color;
 
     
-    let procent = Math.floor(Math.random() * 99.99) + 0.01;
+    let procent = Math.floor(Math.random() * parseFloat(99.99)) + 0.01;
 
     message.channel.send("Procenty: " + procent + "%");
 
