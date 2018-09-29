@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(message.author.username)
     .setColor(random)
     .addField("💸 Give:", args[0])
-    .addField("To:", rUser);
+    .addField("To:", rUser.user.username);
     message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
   }
   fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
