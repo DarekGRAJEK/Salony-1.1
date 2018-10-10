@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Bot Name", bot.user.username)
     .addField("Prefix (conventional) is", "**$**")
     .addField("Created by", "DarekGRAJEK")
-    .addField("Version:", "1.5.2");
+    .addField("Version:", "Pre-Alfa *1* (1.6.0)");
 
     message.channel.send(botembed);
 
