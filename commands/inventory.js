@@ -5,28 +5,28 @@ let fs = require("fs");
 module.exports.run = async (bot, message, args) => {
     if(!invt[message.author.id]){
         invt[message.author.id] = {
-            machete: 0, // Rare
-            diamond: 0, // Legendary
-            iron: 0, //Common
-            copper: 0,  //Common
-            tin: 0, //common
-            gold: 0, //Uncommon
-            titan: 0, //Epic
-            emerald: 0, // Legendary
-            sword: 0, // Rare
-            coal: 0, // common
-            steel: 0, // Rare
-            electrium: 0, // Rare
-            quarc: 0, // Uncommon
-            signatureCPL: 0, // Limited
-            tinore: 0, //ore
-            copperore: 0, //ore
-            ironore: 0, //ore
-            goldore: 0, //ore
-            quarcore: 0, //ore
-            titanore: 0, //ore
-            rock: 0,  //ore
-            stone: 0 //ore
+            id300: 0, // Rare
+            id2: 0, // Legendary
+            id101: 0, //Common
+            id103: 0,  //Common
+            id102: 0, //common
+            id105: 0, //Uncommon
+            id104: 0, //Epic
+            id6: 0, // Legendary
+            id301: 0, // Rare
+            id7: 0, // common
+            id107: 0, // Rare
+            id108: 0, // Rare
+            id106: 0, // Uncommon
+            id10000: 0, // Limited
+            id4: 0, //ore
+            id3: 0, //ore
+            id1: 0, //ore
+            id5: 0, //ore
+            id8: 0, //ore
+            id9: 0, //ore
+            id0: 0,  //ore
+            id100: 0 //ore
         };
     }
     let Color = Math.floor(Math.random() * 999999) + 1;
@@ -65,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Limited items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Podpis CreazyPL", invt[message.author.id].signatureCPL)
+        .addField("Podpis CreazyPL", invt[message.author.id].id10000)
         .addField("???", "???")
         .addField("???", "???")
         .addField("???", "???")
@@ -79,8 +79,8 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Legendary items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Diamond", invt[message.author.id].diamond)
-        .addField("Emerald", invt[message.author.id].emerald)
+        .addField("Diamond", invt[message.author.id].id2)
+        .addField("Emerald", invt[message.author.id].id6)
         .addField("???", "???")
         .addField("???", "???")
         .addField("???", "???")
@@ -93,7 +93,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Epic items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Titan", invt[message.author.id].titan)
+        .addField("Titan", invt[message.author.id].id4)
         .addField("???", "???")
         .addField("???", "???")
         .addField("???", "???")
@@ -107,10 +107,10 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Rare items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Machete", invt[message.author.id].machete)
-        .addField("Electrium", invt[message.author.id].electrium)
-        .addField("Steel", invt[message.author.id].steel)
-        .addField("Sword", invt[message.author.id].sword)
+        .addField("Machete", invt[message.author.id].id300)
+        .addField("Electrium", invt[message.author.id].id108)
+        .addField("Steel", invt[message.author.id].id107)
+        .addField("Sword", invt[message.author.id].id301)
         .addField("???", "???")
         .addField("???", "???")
         .addField("???", "???");
@@ -121,8 +121,8 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Uncommon items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("quarc", invt[message.author.id].quarc)
-        .addField("Gold", invt[message.author.id].gold)
+        .addField("quartz", invt[message.author.id].id106)
+        .addField("Gold", invt[message.author.id].id105)
         .addField("???", "???")
         .addField("???", "???")
         .addField("???", "???")
@@ -135,11 +135,11 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Common items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Iron", invt[message.author.id].iron)
-        .addField("Tin", invt[message.author.id].tin)
-        .addField("Copper", invt[message.author.id].copper)
-        .addField("Coal", invt[message.author.id].coal)
-        .addField("Stone", invt[message.author.id].stone)
+        .addField("Iron", invt[message.author.id].id101)
+        .addField("Tin", invt[message.author.id].id102)
+        .addField("Copper", invt[message.author.id].id103)
+        .addField("Coal", invt[message.author.id].id7)
+        .addField("Stone", invt[message.author.id].id100)
         .addField("???", "???")
         .addField("???", "???");
         message.channel.send(inventory).then(msg => {msg.delete(10000)});
@@ -148,13 +148,13 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Ores")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Iron ore ",  invt[message.author.id].ironore)
-        .addField("Tin ore",  invt[message.author.id].tinore)
-        .addField("Copper ore",  invt[message.author.id].copperore)
-        .addField("Gold ore",  invt[message.author.id].goldore)
-        .addField("Titan ore", invt[message.author.id].titanore)
-        .addField("Quarc ore", invt[message.author.id].quarcore)
-        .addField("Rock", invt[message.author.id].rock);
+        .addField("Iron ore ",  invt[message.author.id].id1)
+        .addField("Tin ore",  invt[message.author.id].id4)
+        .addField("Copper ore",  invt[message.author.id].id3)
+        .addField("Gold ore",  invt[message.author.id].id5)
+        .addField("Titan ore", invt[message.author.id].id9)
+        .addField("Quarc ore", invt[message.author.id].id8)
+        .addField("Rock", invt[message.author.id].id0);
         message.channel.send(inventory).then(msg => {msg.delete(10000)});
     }
 

@@ -62,6 +62,33 @@ bot.on("message", async message => {
     };
   }
 
+  if(!invt[message.author.id]){
+    invt[message.author.id] = {
+        id300: 0, // Rare
+        id2: 0, // Legendary
+        id101: 0, //Common
+        id103: 0,  //Common
+        id102: 0, //common
+        id105: 0, //Uncommon
+        id104: 0, //Epic
+        id6: 0, // Legendary
+        id301: 0, // Rare
+        id7: 0, // common
+        id107: 0, // Rare
+        id108: 0, // Rare
+        id106: 0, // Uncommon
+        id10000: 0, // Limited
+        id4: 0, //ore
+        id3: 0, //ore
+        id1: 0, //ore
+        id5: 0, //ore
+        id8: 0, //ore
+        id9: 0, //ore
+        id0: 0,  //ore
+        id100: 0 //ore
+    };
+}
+
   let coinAmt = Math.floor(Math.random() * 100) + 1;
   let baseAmt = Math.floor(Math.random() * 100) + 1;
   console.log(`${coinAmt} ; ${baseAmt}`);
