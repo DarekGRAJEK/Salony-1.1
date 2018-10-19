@@ -5,6 +5,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 let coins = require("./coins.json");
 let xp = require("./xp.json");
+let invt = require("./inventory.json");
 let purple = botconfig.purple;
 let cooldown = new Set();
 let cdseconds = 5;
@@ -87,7 +88,11 @@ bot.on("message", async message => {
         id0: 0,  //ore
         id100: 0 //ore
     };
-}
+  }
+
+  fs.writeFile("./coins.json", JSON.stringify(invt), (err) => {
+    if (err) console.log(err)
+  });
 
   let coinAmt = Math.floor(Math.random() * 100) + 1;
   let baseAmt = Math.floor(Math.random() * 100) + 1;
