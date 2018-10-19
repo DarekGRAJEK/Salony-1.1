@@ -54,11 +54,11 @@ module.exports.run = async (bot, message, args) => {
     if(coal < parseInt(sur2)) return message.reply("None coal");
     get = get * parseInt(mno);
     console.log(`${get} get!`);
-    iron = iron - parseInt(sur1);
+    invt[message.author.id].id1 = iron - parseInt(sur1);
     console.log(`${iron} ironore!`);
-    coal = coal - parseInt(sur2);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
     console.log(`${coal} coal!`);
-    iiron = iiron + parseInt(get);
+    invt[message.author.id].id101 = iiron + parseInt(get);
     console.log(`${iiron} : iron!`);
   } else if (args[0] == "tinore") {
 
