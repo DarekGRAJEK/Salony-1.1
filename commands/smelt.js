@@ -46,20 +46,14 @@ module.exports.run = async (bot, message, args) => {
   if(args[0] == "ironore") {
     sur1 = sur1 + parseInt(2);
     sur1 = sur1 * parseInt(mno);
-    console.log(`${sur1} sur1!`); 
     if(iron < parseInt(sur1)) return message.reply("None ore / ingots!");
     sur2 = sur2 + 1;
     sur2 = sur2 * parseInt(mno);
-    console.log(`${sur2} sur2!`);
     if(coal < parseInt(sur2)) return message.reply("None coal");
     get = get * parseInt(mno);
-    console.log(`${get} get!`);
     invt[message.author.id].id1 = iron - parseInt(sur1);
-    console.log(`${iron} ironore!`);
     invt[message.author.id].id7 = coal - parseInt(sur2);
-    console.log(`${coal} coal!`);
     invt[message.author.id].id101 = iiron + parseInt(get);
-    console.log(`${iiron} : iron!`);
   } else if (args[0] == "tinore") {
 
   } else if (args[0] == "copperore") {
