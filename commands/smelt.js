@@ -40,19 +40,26 @@ module.exports.run = async (bot, message, args) => {
   }
   if(parseInt(args[1]) > 1) {
     mno = mno * 0 + parseInt(args[1]);
+    console.log(`${mno} mno!`);
   }
 
   if(args[0] == "ironore") {
     sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno); 
+    sur1 = sur1 * parseInt(mno);
+    console.log(`${sur1} sur1!`); 
     if(iron < parseInt(sur1)) return message.reply("None ore / ingots!");
     sur2 = sur2 + 1;
     sur2 = sur2 * parseInt(mno);
+    console.log(`${sur2} sur2!`);
     if(coal < parseInt(sur2)) return message.reply("None coal");
     get = get * parseInt(mno);
+    console.log(`${get} get!`);
     iron = iron - parseInt(sur1);
+    console.log(`${iron} ironore!`);
     coal = coal - parseInt(sur2);
+    console.log(`${coal} coal!`);
     iiron = iiron + parseInt(get);
+    console.log(`${iiron} : iron!`);
   } else if (args[0] == "tinore") {
 
   } else if (args[0] == "copperore") {
