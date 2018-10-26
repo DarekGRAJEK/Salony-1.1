@@ -93,7 +93,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("Epic items")
         .setDescription("Your inventory.")
         .setColor(random)
-        .addField("Titan", invt[message.author.id].id4)
+        .addField("Titan", invt[message.author.id].id104)
         .addField("???", "???")
         .addField("???", "???")
         .addField("???", "???")
