@@ -15,56 +15,56 @@ module.exports.run = async (bot, message, args) => {
     
 
     if (replies[result] == "rock") {
-        let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5","5","5","5","5","5","6","6","6","6","6","6","6","6","5","4"];
+        let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5","5","5","5","5","5","6","6","6","6","6","6","6","6","5","4",];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id0 = invt[message.author.id].id0 + parseInt(Get)
-        message.reply(`Get ${Get} Rock`);
+        invt[message.author.id].id0 = invt[message.author.id].id0 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Rock`);
     } else if (replies[result] == "coal"){
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id7 = invt[message.author.id].id7 + parseInt(Get)
-        message.reply(`Get ${Get} Coal`)
+        invt[message.author.id].id7 = invt[message.author.id].id7 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Coal`)
     } else if (replies[result] == "gold"){
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id5 = invt[message.author.id].id5 + parseInt(Get)
-        message.reply(`Get ${Get} Gold Ore`)
+        invt[message.author.id].id5 = invt[message.author.id].id5 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Gold Ore`)
     } else if (replies[result] == "emerald") {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id6 = invt[message.author.id].id6 + parseInt(Get)
-        message.reply(`Get ${Get} Emerald`)
+        invt[message.author.id].id6 = invt[message.author.id].id6 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Emerald`)
     } else if (replies[result] == "diamont") {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id2 = invt[message.author.id].id2 + parseInt(Get) 
-        message.reply(`Get ${Get} Diamond`)
+        invt[message.author.id].id2 = invt[message.author.id].id2 + parseInt(ore[Get]) 
+        message.reply(`Get ${ore[Get]} Diamond`)
     } else if (replies[result == "titan"]) {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
 
-        invt[message.author.id].id9 = invt[message.author.id].id9 + parseInt(Get)
-        message.reply(`Get ${Get} Titan Ore`)
+        invt[message.author.id].id9 = invt[message.author.id].id9 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Titan Ore`)
     } else if (replies[result] == "copper") {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id3 = invt[message.author.id].id3 + parseInt(Get)
-        message.reply(`Get ${Get} Copper Ore`)
+        invt[message.author.id].id3 = invt[message.author.id].id3 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Copper Ore`)
     } else if (replies[result] == "tin") {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id4 = invt[message.author.id].id4 + parseInt(Get)
-        message.reply(`Get ${Get} Tin Ore`)
+        invt[message.author.id].id4 = invt[message.author.id].id4 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Tin Ore`)
     } else if (replies[result] == "quarc") {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id8 = invt[message.author.id].id8 + parseInt(Get)
-        message.reply(`Get ${Get} Quarc Ore`)
+        invt[message.author.id].id8 = invt[message.author.id].id8 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Quarc Ore`)
     } else if (replies[result] == "iron") {
         let ore = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5"];
         let Get = Math.floor((Math.random()* ore.length));
-        invt[message.author.id].id1 = invt[message.author.id].id1 + parseInt(Get)
-        message.reply(`Get ${Get} Iron Ore`)
+        invt[message.author.id].id1 = invt[message.author.id].id1 + parseInt(ore[Get])
+        message.reply(`Get ${ore[Get]} Iron Ore`)
     }
 
     fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {
