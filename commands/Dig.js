@@ -12,38 +12,59 @@ module.exports.run = async (bot, message, args) => {
     let replies = ["rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","rock","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","tin","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","copper","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","iron","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","diamont","diamont","diamont","diamont","diamont","diamont","diamont","emerald","emerald","emerald","emerald","emerald","emerald","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","quarc","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","coal","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan","titan",];
     let result = Math.floor((Math.random()* replies.length));
 
-
+    
 
     if (replies[result] == "rock") {
-        invt[message.author.id].id0 = invt[message.author.id].id0 + parseInt(1)
-        message.reply("Get Rock");
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,5,4];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id0 = invt[message.author.id].id0 + parseInt(Get)
+        message.reply(`Get ${Get} Rock`);
     } else if (replies[result] == "coal"){
-        invt[message.author.id].id7 = invt[message.author.id].id7 + parseInt(1)
-        message.reply("Get Coal")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id7 = invt[message.author.id].id7 + parseInt(Get)
+        message.reply(`Get ${Get} Coal`)
     } else if (replies[result] == "gold"){
-        invt[message.author.id].id5 = invt[message.author.id].id5 + parseInt(1)
-        message.reply("Get Gold Ore")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id5 = invt[message.author.id].id5 + parseInt(Get)
+        message.reply(`Get ${Get} Gold Ore`)
     } else if (replies[result] == "emerald") {
-        invt[message.author.id].id6 = invt[message.author.id].id6 + parseInt(1)
-        message.reply("Get Emerald")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id6 = invt[message.author.id].id6 + parseInt(Get)
+        message.reply(`Get ${Get} Emerald`)
     } else if (replies[result] == "diamont") {
-        invt[message.author.id].id2 = invt[message.author.id].id2 + parseInt(1) 
-        message.reply("Get Diamond")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id2 = invt[message.author.id].id2 + parseInt(Get) 
+        message.reply(`Get ${Get} Diamond`)
     } else if (replies[result == "titan"]) {
-        invt[message.author.id].id9 = invt[message.author.id].id9 + parseInt(1)
-        message.reply("Get Titan Ore")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+
+        invt[message.author.id].id9 = invt[message.author.id].id9 + parseInt(Get)
+        message.reply(`Get ${Get} Titan Ore`)
     } else if (replies[result] == "copper") {
-        invt[message.author.id].id3 = invt[message.author.id].id3 + parseInt(1)
-        message.reply("Get Copper Ore")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id3 = invt[message.author.id].id3 + parseInt(Get)
+        message.reply(`Get ${Get} Copper Ore`)
     } else if (replies[result] == "tin") {
-        invt[message.author.id].id4 = invt[message.author.id].id4 + parseInt(1)
-        message.reply("Get Tin Ore")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id4 = invt[message.author.id].id4 + parseInt(Get)
+        message.reply(`Get ${Get} Tin Ore`)
     } else if (replies[result] == "quarc") {
-        invt[message.author.id].id8 = invt[message.author.id].id8 + parseInt(1)
-        message.reply("Get Quarc Ore")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id8 = invt[message.author.id].id8 + parseInt(Get)
+        message.reply(`Get ${Get} Quarc Ore`)
     } else if (replies[result] == "iron") {
-        invt[message.author.id].id1 = invt[message.author.id].id1 + parseInt(1)
-        message.reply("Get Iron Ore")
+        let ore = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5];
+        let Get = Math.floor((Math.random()* ore.length));
+        invt[message.author.id].id1 = invt[message.author.id].id1 + parseInt(Get)
+        message.reply(`Get ${Get} Iron Ore`)
     }
 
     fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {

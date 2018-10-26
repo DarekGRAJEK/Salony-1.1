@@ -35,43 +35,127 @@ module.exports.run = async (bot, message, args) => {
 
 
   if(args[0] == "help"){
-    message.reply("Usage: !smelt <ore/ingot> <amount>");
+    message.reply("Usage: !smelt <ingot> <amount>");
     return;
   }
   if(parseInt(args[1]) > 1) {
     mno = mno * 0 + parseInt(args[1]);
-    console.log(`${mno} mno!`);
   }
 
-  if(args[0] == "ironore") {
+  if(args[0] == "iron") {
     sur1 = sur1 + parseInt(2);
     sur1 = sur1 * parseInt(mno);
-    if(iron < parseInt(sur1)) return message.reply("None ore / ingots!");
-    sur2 = sur2 + 1;
+    if(iron < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
     sur2 = sur2 * parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal");
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
     get = get * parseInt(mno);
     invt[message.author.id].id1 = iron - parseInt(sur1);
     invt[message.author.id].id7 = coal - parseInt(sur2);
     invt[message.author.id].id101 = iiron + parseInt(get);
-  } else if (args[0] == "tinore") {
-
-  } else if (args[0] == "copperore") {
-
-  } else if (args[0] == "rock") {
-
-  } else if (args[0] == "titanore") {
-
-  } else if (args[0] == "goldore") {
-
-  } else if (args[0] == "quartzore") {
-
+    message.reply(`Got a ${get} iron!`)
+  } else if (args[0] == "tin") {
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    if(tin < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id4 = tin - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id102 = itin + parseInt(get);
+    message.reply(`Got a ${get} tin!`)
+  } else if (args[0] == "copper") {
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    if(copper < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id3 = copper - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id103 = icopper + parseInt(get);
+    message.reply(`Got a ${get} copper!`)
+  } else if (args[0] == "stone") {
+    sur1 = sur1 + parseInt(6);
+    sur1 = sur1 * parseInt(mno);
+    if(rock < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(6);
+    get = get * parseInt(mno);
+    invt[message.author.id].id0 = rock - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id100 = stone + parseInt(get);
+    message.reply(`Got a ${get} stone!`)
+  } else if (args[0] == "titan") {
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    if(titan < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id9 = titan - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id104 = ititan + parseInt(get);
+    message.reply(`Got a ${get} titan!`)
+  } else if (args[0] == "gold") {
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    if(gold < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id5 = gold - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id105 = igold + parseInt(get);
+    message.reply(`Got a ${get} gold!`)
+  } else if (args[0] == "quartz") {
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    if(quartz < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id8 = quartz - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id106 = iquartz + parseInt(get);
+    message.reply(`Got a ${get} quartz!`)
   } else if (args[0] == "electrium") {
-
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    sur3 = sur3 + parseInt(2);
+    sur3 = sur3 + parseInt(mno);
+    if(gold < parseInt(sur1) || quartz < parseInt(sur3)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(1);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id4 = tin - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id108 = electrium + parseInt(get)
+    invt[message.author.id].id106 = quartz - parseInt(sur3);
+    message.reply(`Got a ${get} electrium!`)
   } else if (args[0] == "steel") {
-
+    sur1 = sur1 + parseInt(2);
+    sur1 = sur1 * parseInt(mno);
+    if(iron < parseInt(sur1)) return message.reply("None ore!");
+    sur2 = sur2 + parseInt(4);
+    sur2 = sur2 + parseInt(mno);
+    if(coal < parseInt(sur2)) return message.reply("None coal!");
+    get = get * parseInt(mno);
+    invt[message.author.id].id4 = iron - parseInt(sur1);
+    invt[message.author.id].id7 = coal - parseInt(sur2);
+    invt[message.author.id].id102 = itin + parseInt(get);
+    message.reply(`Got a ${get} steel!`)
   } else {
-
+    message.reply("Command: $smelt <ingot> <ammount>")
   }
 
 
