@@ -8,7 +8,7 @@ let xp = require("./xp.json");
 let invt = require("./inventory.json");
 let purple = botconfig.purple;
 let cooldown = new Set();
-let cdseconds = 5;
+let cdseconds = 1;
 bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
