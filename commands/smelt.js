@@ -35,11 +35,14 @@ module.exports.run = async (bot, message, args) => {
 
 
   if(args[0] == "help"){
-    message.reply("Usage: !smelt <ingot> <amount>");
+    message.reply("Usage: $smelt <ingot> <amount> || $smelt list");
     return;
   }
   if(parseInt(args[1]) > 1) {
     mno = mno * 0 + parseInt(args[1]);
+  }
+  if (args[0] == "list") {
+    message.channel.send("```Iron: 2 iron ore & 1 coal | Copper: 2 copper ore & 1 coal | Titan")
   }
 
   if(args[0] == "iron") {
@@ -155,9 +158,10 @@ module.exports.run = async (bot, message, args) => {
     invt[message.author.id].id102 = itin + parseInt(get);
     message.reply(`Got a ${get} steel!`)
   } else {
-    message.reply("Command: $smelt <ingot> <ammount>")
+    message.reply("Command: $smelt <ingot> <ammount> || $smelt list")
   }
 
+  
 
   fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {
     if(err) cosole.log(err)
