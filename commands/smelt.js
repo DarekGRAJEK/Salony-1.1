@@ -21,152 +21,169 @@ module.exports.run = async (bot, message, args) => {
     let igold = invt[message.author.id].id105;
     let iquartz = invt[message.author.id].id106;
     let electrium = invt[message.author.id].id108;
-    let steel = invt[message.author.id].id107
-    let mno = parseInt(1);
-    let sur1 = parseInt(0);
-    let sur2 = parseInt(0);
-    let sur3 = parseInt(0);
-    let sur4 = parseInt(0);
-    let sur5 = parseInt(0);
-    let sur6 = parseInt(0);
-    let sur7 = parseInt(0);
-    let get = parseInt(1);
+    let steel = invt[message.author.id].id107;
 
-
+    let Color = Math.floor(Math.random() * 999999) + 1;
+    let random = "#" + Color;
 
   if(args[0] == "help"){
-    message.reply("Usage: $smelt <ingot> <amount> || $smelt list");
+    message.reply("Usage: $smelt or $smelt list Type:  ***cancel***  to Leave the progress.");
     return;
   }
-  if(parseInt(args[1]) > 1) {
-    mno = mno * 0 + parseInt(args[1]);
-  }
   if (args[0] == "list") {
-    message.channel.send("```Iron: 2 iron ore & 1 coal | Copper: 2 copper ore & 1 coal | Titan")
+    message.channel.send("stone, iron, copper, gold, tin, electrium, steel, quartz, titan.").then(r => r.delete(10000));
   }
 
-  if(args[0] == "iron") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(iron < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 * parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id1 = iron - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id101 = iiron + parseInt(get);
-    message.reply(`Got a ${get} iron!`)
-  } else if (args[0] == "tin") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(tin < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id4 = tin - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id102 = itin + parseInt(get);
-    message.reply(`Got a ${get} tin!`)
-  } else if (args[0] == "copper") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(copper < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id3 = copper - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id103 = icopper + parseInt(get);
-    message.reply(`Got a ${get} copper!`)
-  } else if (args[0] == "stone") {
-    sur1 = sur1 + parseInt(6);
-    sur1 = sur1 * parseInt(mno);
-    if(rock < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(6);
-    get = get * parseInt(mno);
-    invt[message.author.id].id0 = rock - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id100 = stone + parseInt(get);
-    message.reply(`Got a ${get} stone!`)
-  } else if (args[0] == "titan") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(titan < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id9 = titan - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id104 = ititan + parseInt(get);
-    message.reply(`Got a ${get} titan!`)
-  } else if (args[0] == "gold") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(gold < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id5 = gold - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id105 = igold + parseInt(get);
-    message.reply(`Got a ${get} gold!`)
-  } else if (args[0] == "quartz") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(quartz < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id8 = quartz - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id106 = iquartz + parseInt(get);
-    message.reply(`Got a ${get} quartz!`)
-  } else if (args[0] == "electrium") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    sur3 = sur3 + parseInt(2);
-    sur3 = sur3 + parseInt(mno);
-    if(gold < parseInt(sur1) || quartz < parseInt(sur3)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(1);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id4 = tin - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id108 = electrium + parseInt(get)
-    invt[message.author.id].id106 = quartz - parseInt(sur3);
-    message.reply(`Got a ${get} electrium!`)
-  } else if (args[0] == "steel") {
-    sur1 = sur1 + parseInt(2);
-    sur1 = sur1 * parseInt(mno);
-    if(iron < parseInt(sur1)) return message.reply("None ore!");
-    sur2 = sur2 + parseInt(4);
-    sur2 = sur2 + parseInt(mno);
-    if(coal < parseInt(sur2)) return message.reply("None coal!");
-    get = get * parseInt(mno);
-    invt[message.author.id].id4 = iron - parseInt(sur1);
-    invt[message.author.id].id7 = coal - parseInt(sur2);
-    invt[message.author.id].id102 = itin + parseInt(get);
-    message.reply(`Got a ${get} steel!`)
-  } else {
-    message.reply("Command: $smelt <ingot> <ammount> || $smelt list")
-  }
+  const filter = m => m.author.id === message.author.id;
+  message.reply("Please write a ingot name to get! (If you don't remeber the ingots name, then please write $smelt list.) (Ps. You Have 10s to write a options!)").then(r => r.delete(10000));
+  message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
 
-  
+    if(collected.first().content === "cancel") {
+      return message.reply("Cancled");
+    }
 
-  fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {
-    if(err) cosole.log(err)
-});
+    let itemlist = collected.first().content; 
+    if(parseInt(args[1]) > 1) {
+      mno = mno * 0 + parseInt(args[1]);
+    }
 
+   
+
+    if(itemlist == "iron") {
+    sur1 = sur1 + parseInt(2);
+    sur2 = sur2 + parseInt(1);
+    get = get + parseInt(1);
+    mno = mno + parseInt(1);
+      let helpEmbed = new Discord.RichEmbed()
+        .setTitle("Smelt Iron")
+        .setDescription("Information to Smelt. (default)")
+        .setColor(random)
+        .addField("Need Iron Ore", sur1)
+        .addField("Neet Coal", sur2)
+        .addField("Get Iron", get)
+        .addField("Multiplier", mno)
+        .addField("If you accept this:", "Please write  ***accept***")
+        .addField("If you change Multiplier:", "Please write  ***change***")
+        .addField("If you cancel all progress:", "Please write any letter.");
+      message.channel.send(helpEmbed).then(r => r.delete(20000));
+      
+      message.reply("Im wait to write option.").then(r => r.delete(10000));
+      message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+        let option = collected.first().content;
+        
+        if(option == "accept") {
+          let Need = new Discord.RichEmbed()
+          .setTitle("Progress Canceled!")
+          .setColor(random)
+          .addField("You Need:" `iron ore: ${sur1}`)
+          .addField("You Have:", `iron ore: ${iron}`);
+          if(iron < sur1) return message.channel.send(Need).then(r => r.delete(5000));
+          let Need = new Discord.RichEmbed()
+          .setTitle("Progress Canceled!")
+          .setColor(random)
+          .addField("You Need:" `coal: ${sur2}`)
+          .addField("You Have:", `coal: ${coal}`);
+          if(coal < sur1) return message.channel.send(Need).then(r => r.delete(5000));
+
+          invt[message.author.id].id101 = iiron + parseInt(get);
+          invt[message.author.id].id1 = iron - parseInt(sur1);
+          invt[message.author.id].id7 = coal - parseInt(sur2);
+
+          fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {
+            if(err) cosole.log(err)
+          });
+
+          let GetSur = new Discord.RichEmbed()
+          .setTitle("You completed smelt progress!")
+          .setColor(random)
+          .setDescription("Hurry!!! You Happy DAY!")
+          .addField("Now Have:", `iron ore: ${iron}`)
+          .addField("Now Have:", `coal: ${coal}`)
+          .addField("You Get:", `iron: ${iiron}`)
+          .addField("Now Have:", `iron: ${iiron}`);
+          message.channel.send(GetSur).then(r => r.delete(10000));
+        } else if (option == "change") {
+          message.reply("Please write new Multiplayer. (Write ***Cancel*** to cancel all progress!)").then(r => r.delete(10000));
+          message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+          let multi = collected.first().content;
+          
+          if (multi != Number) return message.reply("This is not Number! Smelt Progress has canceled!");
+          multi = parseInt(multi);
+          sur1 = sur1 * parseInt(multi);
+          sur2 = sur2 * parseInt(multi);
+          mno = mno * parseInt(multi);
+          get = get * parseInt(multi);
+          if (multi == Number) { 
+          let helpEmbed = new Discord.RichEmbed()
+          .setTitle("Smelt Iron")
+          .setDescription("Information to Smelt. (changed)")
+          .setColor(random)
+          .addField("Need Iron Ore", sur1)
+          .addField("Neet Coal", sur2)
+          .addField("Get Iron", get)
+          .addField("Multiplier", mno)
+          .addField("If you accept this:", "Please write  ***accept***")
+          .addField("If you cancel all progress:", "Please write any letter.");
+          message.channel.send(helpEmbed).then(r => r.delete(15000));
+          message.reply("I'm waiting for write a option.").then(r => r.delete(10000));
+          message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+          let option = collected.first().content;
+
+            if (option == "accept"){
+              let Need = new Discord.RichEmbed()
+              .setTitle("Progress Canceled!")
+              .setColor(random)
+              .addField("You Need:" `iron ore: ${sur1}`)
+              .addField("You Have:", `iron ore: ${iron}`);
+              if(iron < sur1) return message.channel.send(Need).then(r => r.delete(5000));
+              let Need = new Discord.RichEmbed()
+              .setTitle("Progress Canceled!")
+              .setColor(random)
+              .addField("You Need:" `coal: ${sur2}`)
+              .addField("You Have:", `coal: ${coal}`);
+              if(coal < sur1) return message.channel.send(Need).then(r => r.delete(5000));
+    
+              invt[message.author.id].id101 = iiron + parseInt(get);
+              invt[message.author.id].id1 = iron - parseInt(sur1);
+              invt[message.author.id].id7 = coal - parseInt(sur2);
+    
+              fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {
+                if(err) cosole.log(err)
+              });
+    
+              let GetSur = new Discord.RichEmbed()
+              .setTitle("You completed smelt progress!")
+              .setColor(random)
+              .setDescription("Hurry!!! You Happy DAY!")
+              .addField("Now Have:", `iron ore: ${iron}`)
+              .addField("Now Have:", `coal: ${coal}`)
+              .addField("You Get:", `iron: ${iiron}`)
+              .addField("Now Have:", `iron: ${iiron}`);
+              message.channel.send(GetSur).then(r => r.delete(10000));    
+            } else {
+              return message.reply("Canceled!").then(r => r.delete(5000));
+            }
+
+          }).catch(err => {
+            message.reply("Canceled!").then(r => r.delete(5000));
+          });
+          }
+
+          }).catch(err => {
+            message.reply("Canceled!").then(r => r.delete(5000));
+          });
+        } else {
+          message.reply("Canceled!").then(r => r.delete(5000));
+        }
+
+      }).catch(err => {
+      message.reply("Canceled!").then(r => r.delete(5000));
+      });
+    }
+   
+  }).catch(err => {
+    message.reply("Canceled!").then(r => r.delete(5000));
+  });
 }
 
 module.exports.help = {
