@@ -101,9 +101,9 @@ module.exports.run = async (bot, message, args) => {
             if(err) cosole.log(err)
           });
 
-          let iron = invt[message.author.id].id1;
+          iron = invt[message.author.id].id1;
           let iiron = invt[message.author.id].id101;
-          let coal = invt[message.author.id].id7;
+          coal = invt[message.author.id].id7;
 
           let GetSur = new Discord.RichEmbed()
           .setTitle("You completed smelt progress!")
@@ -164,9 +164,9 @@ module.exports.run = async (bot, message, args) => {
               fs.writeFile("./inventory.json", JSON.stringify(invt), (err) => {
                 if(err) cosole.log(err)
               });
-              let iron = invt[message.author.id].id1;
+              iron = invt[message.author.id].id1;
               let iiron = invt[message.author.id].id101;
-              let coal = invt[message.author.id].id7;
+              coal = invt[message.author.id].id7;
               let GetSur = new Discord.RichEmbed()
               .setTitle("You completed smelt progress!")
               .setColor(random)
