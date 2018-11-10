@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
 
    
 
-    if(itemlist == "iron") {
+    if(itemlist === "iron") {
     sur1 = sur1 + parseInt(2);
     sur2 = sur2 + parseInt(1);
     get = get + parseInt(1);
@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args) => {
       message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
         let option = collected.first().content;
         
-        if(option == "accept") {
+        if(option === "accept") {
           let Need = new Discord.RichEmbed()
           .setTitle("Progress Canceled!")
           .setColor(random)
@@ -102,7 +102,7 @@ module.exports.run = async (bot, message, args) => {
           .addField("You Get:", `iron: ${iiron}`)
           .addField("Now Have:", `iron: ${iiron}`);
           message.channel.send(GetSur).then(r => r.delete(10000));
-        } else if (option == "change") {
+        } else if (option === "change") {
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to cancel all progress!)").then(r => r.delete(10000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           let multi = collected.first().content;
@@ -129,7 +129,7 @@ module.exports.run = async (bot, message, args) => {
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           let option = collected.first().content;
 
-            if (option == "accept"){
+            if (option === "accept"){
               let Need = new Discord.RichEmbed()
               .setTitle("Progress Canceled!")
               .setColor(random)
