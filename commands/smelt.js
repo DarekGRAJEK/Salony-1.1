@@ -23,6 +23,19 @@ module.exports.run = async (bot, message, args) => {
     let electrium = invt[message.author.id].id108;
     let steel = invt[message.author.id].id107;
 
+    let sur1 = parseInt(0);
+    let sur2 = parseInt(0);
+    let sur3 = parseInt(0);
+    let sur4 = parseInt(0);
+    let sur5 = parseInt(0);
+    let sur6 = parseInt(0);
+    let sur7 = parseInt(0);
+    let sur8 = parseInt(0);
+    let sur9 = parseInt(0);
+    let sur0 = parseInt(0);
+    let mno = parseInt(0);
+    let get = parseInt(0);
+
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
 
@@ -178,7 +191,7 @@ module.exports.run = async (bot, message, args) => {
    
   }).catch(err => {
     message.reply("Canceled!").then(r => r.delete(5000));
-    console.log(err);
+    //console.log(err);
   });
 }
 
