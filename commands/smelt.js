@@ -5,7 +5,6 @@ let fs = require("fs");
 module.exports.run = async (bot, message, args) => {
   //!shop
 
-    let iron = invt[message.author.id].id1;
     let copper = invt[message.author.id].id3;
     let tin = invt[message.author.id].id4;
     let gold = invt[message.author.id].id5;
@@ -13,7 +12,6 @@ module.exports.run = async (bot, message, args) => {
     let quartz = invt[message.author.id].id8;
     let titan = invt[message.author.id].id9;
     let rock = invt[message.author.id].id0;
-    let iiron = invt[message.author.id].id101;
     let stone = invt[message.author.id].id100;
     let itin = invt[message.author.id].id102;
     let icopper = invt[message.author.id].id103;
@@ -80,6 +78,8 @@ module.exports.run = async (bot, message, args) => {
         let option = collected.first().content;
         
         if(option === "accept") {
+          let iron = invt[message.author.id].id1;
+          let coal = invt[message.author.id].id7;
           let Need = new Discord.RichEmbed()
           .setTitle("Progress Canceled!")
           .setColor(random)
@@ -142,6 +142,8 @@ module.exports.run = async (bot, message, args) => {
           let option = collected.first().content;
 
             if (option === "accept"){
+              let iron = invt[message.author.id].id1;
+              let coal = invt[message.author.id].id7;
               let Need = new Discord.RichEmbed()
               .setTitle("Progress Canceled!")
               .setColor(random)
