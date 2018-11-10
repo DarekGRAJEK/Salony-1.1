@@ -178,6 +178,7 @@ module.exports.run = async (bot, message, args) => {
    
   }).catch(err => {
     message.reply("Canceled!").then(r => r.delete(5000));
+    console.log(err);
   });
 }
 
