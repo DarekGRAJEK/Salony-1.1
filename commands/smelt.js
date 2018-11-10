@@ -78,12 +78,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("You Need:" `iron ore: ${sur1}`)
           .addField("You Have:", `iron ore: ${iron}`);
           if(iron < sur1) return message.channel.send(Need).then(r => r.delete(5000));
-          let Need = new Discord.RichEmbed()
+          let Need2 = new Discord.RichEmbed()
           .setTitle("Progress Canceled!")
           .setColor(random)
           .addField("You Need:" `coal: ${sur2}`)
           .addField("You Have:", `coal: ${coal}`);
-          if(coal < sur1) return message.channel.send(Need).then(r => r.delete(5000));
+          if(coal < sur1) return message.channel.send(Need2).then(r => r.delete(5000));
 
           invt[message.author.id].id101 = iiron + parseInt(get);
           invt[message.author.id].id1 = iron - parseInt(sur1);
@@ -136,12 +136,12 @@ module.exports.run = async (bot, message, args) => {
               .addField("You Need:" `iron ore: ${sur1}`)
               .addField("You Have:", `iron ore: ${iron}`);
               if(iron < sur1) return message.channel.send(Need).then(r => r.delete(5000));
-              let Need = new Discord.RichEmbed()
+              let Need2 = new Discord.RichEmbed()
               .setTitle("Progress Canceled!")
               .setColor(random)
               .addField("You Need:" `coal: ${sur2}`)
               .addField("You Have:", `coal: ${coal}`);
-              if(coal < sur1) return message.channel.send(Need).then(r => r.delete(5000));
+              if(coal < sur1) return message.channel.send(Need2).then(r => r.delete(5000));
     
               invt[message.author.id].id101 = iiron + parseInt(get);
               invt[message.author.id].id1 = iron - parseInt(sur1);
