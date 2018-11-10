@@ -42,12 +42,7 @@ module.exports.run = async (bot, message, args) => {
       return message.reply("Cancled");
     }
 
-    let itemlist = collected.first().content; 
-    if(parseInt(args[1]) > 1) {
-      mno = mno * 0 + parseInt(args[1]);
-    }
-
-   
+    let itemlist = collected.first().content;
 
     if(itemlist === "iron") {
     sur1 = sur1 + parseInt(2);
