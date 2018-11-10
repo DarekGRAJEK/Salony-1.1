@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   const filter = m => m.author.id === message.author.id;
-  message.reply("Please write a ingot name to get! (If you don't remeber the ingots name, then please write $smelt list.) (Ps. You Have 10s to write a options!)").then(r => r.delete(10000));
+  message.reply("Please write a ingot name to get! (If you don't remeber the ingots name, then please write $smelt list.) (Ps. You Have 20s to write a options!)").then(r => r.delete(10000));
   message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
 
     if(collected.first().content === "cancel") {
@@ -114,7 +114,7 @@ module.exports.run = async (bot, message, args) => {
           .addField("Now Have:", `coal: ${coal}`)
           .addField("You Get:", `iron: ${get}`)
           .addField("Now Have:", `iron: ${iiron}`);
-          message.channel.send(GetSur).then(r => r.delete(10000));
+          message.channel.send(GetSur).then(r => r.delete(15000));
         } else if (option === "change") {
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to cancel all progress!)").then(r => r.delete(10000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
@@ -182,14 +182,13 @@ module.exports.run = async (bot, message, args) => {
               .addField("Now Have:", `coal: ${coal}`)
               .addField("You Get:", `iron: ${get}`)
               .addField("Now Have:", `iron: ${iiron}`);
-              message.channel.send(GetSur).then(r => r.delete(10000));    
+              message.channel.send(GetSur).then(r => r.delete(15000));    
             } else {
               return message.reply("Canceled!").then(r => r.delete(5000));
             }
 
           }).catch(err => {
             message.reply("Canceled!").then(r => r.delete(5000));
-            console.log(err);
           });
           } else {
             return message.reply("The number must be positive");
@@ -197,22 +196,18 @@ module.exports.run = async (bot, message, args) => {
 
           }).catch(err => {
             message.reply("Canceled!").then(r => r.delete(5000));
-            console.log(err);
           });
         } else {
           message.reply("Canceled!").then(r => r.delete(5000));
-          console.log(err);
         }
 
       }).catch(err => {
       message.reply("Canceled!").then(r => r.delete(5000));
-        console.log(err);
       });
     }
    
   }).catch(err => {
     message.reply("Canceled!").then(r => r.delete(5000));
-    console.log(err);
   });
 }
 
