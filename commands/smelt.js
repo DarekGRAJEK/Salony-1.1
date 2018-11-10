@@ -118,15 +118,20 @@ module.exports.run = async (bot, message, args) => {
         } else if (option === "change") {
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to cancel all progress!)").then(r => r.delete(10000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+          
+          if(collected.first().content === "cancel") {
+            return message.reply("Cancled");
+          }
+      
           let multi = collected.first().content;
           
-          if (multi != Number) return message.reply("This is not Number! Smelt Progress has canceled!");
+          if (multi == null) return message.reply("This is not Number! Smelt Progress has canceled!");
           multi = parseInt(multi);
           sur1 = sur1 * parseInt(multi);
           sur2 = sur2 * parseInt(multi);
           mno = mno * parseInt(multi);
           get = get * parseInt(multi);
-          if (multi == Number) { 
+          if (multi >= 1) { 
           let helpEmbed = new Discord.RichEmbed()
           .setTitle("Smelt Iron")
           .setDescription("Information to Smelt. (changed)")
@@ -186,6 +191,8 @@ module.exports.run = async (bot, message, args) => {
             message.reply("Canceled!").then(r => r.delete(5000));
             console.log(err);
           });
+          } else {
+            return message.reply("The number must be positive");
           }
 
           }).catch(err => {
