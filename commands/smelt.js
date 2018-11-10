@@ -80,6 +80,7 @@ module.exports.run = async (bot, message, args) => {
         if(option === "accept") {
           let iron = invt[message.author.id].id1;
           let coal = invt[message.author.id].id7;
+          let iiron = invt[message.author.id].id101;
           let Need = new Discord.RichEmbed()
           .setTitle("Progress Canceled!")
           .setColor(random)
@@ -102,7 +103,7 @@ module.exports.run = async (bot, message, args) => {
           });
 
           iron = invt[message.author.id].id1;
-          let iiron = invt[message.author.id].id101;
+          iiron = invt[message.author.id].id101;
           coal = invt[message.author.id].id7;
 
           let GetSur = new Discord.RichEmbed()
@@ -144,6 +145,7 @@ module.exports.run = async (bot, message, args) => {
             if (option === "accept"){
               let iron = invt[message.author.id].id1;
               let coal = invt[message.author.id].id7;
+              let iiron = invt[message.author.id].id101;
               let Need = new Discord.RichEmbed()
               .setTitle("Progress Canceled!")
               .setColor(random)
@@ -165,7 +167,7 @@ module.exports.run = async (bot, message, args) => {
                 if(err) cosole.log(err)
               });
               iron = invt[message.author.id].id1;
-              let iiron = invt[message.author.id].id101;
+              iiron = invt[message.author.id].id101;
               coal = invt[message.author.id].id7;
               let GetSur = new Discord.RichEmbed()
               .setTitle("You completed smelt progress!")
