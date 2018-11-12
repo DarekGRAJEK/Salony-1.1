@@ -135,7 +135,7 @@ module.exports.run = async (bot, message, args) => {
           let multi = collected.first().content;
           
           if (multi == null) message.reply("This is not Number!");
-          if (multi < 1) message.reply("The number muss be over 0.")
+          if (multi < 1) message.reply("The number muss be over 0.");
           if (multi >= 1) {
             break;
           }
