@@ -57,7 +57,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(itemlist === "iron") {
       multi = parseInt(1);
-      do {
+      while (true) {
       sur1 = sur1 + parseInt(2);
       sur2 = sur2 + parseInt(1);
       get = get + parseInt(1);
@@ -123,7 +123,7 @@ module.exports.run = async (bot, message, args) => {
           .addField("Now Have:", `iron: ${iiron}`);
           message.channel.send(GetSur).then(r => r.delete(15000));
         } else if (option === "change") {
-          do {
+          while (true) { 
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!)").then(r => r.delete(10000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           
@@ -143,7 +143,7 @@ module.exports.run = async (bot, message, args) => {
           }).catch(err => {
             return message.reply("Time Out!").then(r => r.delete(5000));
           });
-          } while (true);
+          }
 
         } else {
           return message.reply("Canceled!").then(r => r.delete(5000));
@@ -152,11 +152,11 @@ module.exports.run = async (bot, message, args) => {
       }).catch(err => {
        return message.reply("Time Out!").then(r => r.delete(5000));
       });
-     } while (true);
+     }
     }
   
   }).catch(err => {
-    message.reply("Canceled!").then(r => r.delete(5000));
+    return message.reply("Time Out!").then(r => r.delete(5000));
   });
 }
 
