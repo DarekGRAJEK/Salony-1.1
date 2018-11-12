@@ -33,6 +33,8 @@ module.exports.run = async (bot, message, args) => {
     let sur0 = parseInt(0);
     let mno = parseInt(0);
     let get = parseInt(0);
+    let multi = parseInt(1);
+    let fet = parseInt(0);
 
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
@@ -123,26 +125,22 @@ module.exports.run = async (bot, message, args) => {
           .addField("Now Have:", `iron: ${iiron}`);
           message.channel.send(GetSur).then(r => r.delete(15000));
         } else if (option === "change") {
+          fet = parseInt(0) + multi
           while (true) { 
-          message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!)").then(r => r.delete(10000));
+          message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!) (defecult").then(r => r.delete(20000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           
-          if(collected.first().content === "cancel") {
-            message.reply("Returned!").then(r => r.delete(4000));
-            break;
-          }
-      
-          let multi = collected.first().content;
-          
-          if (multi == null) message.reply("This is not Number!");
-          if (multi < 1) message.reply("The number muss be over 0.");
-          if (multi >= 1) {
-            break;
-          }
+          multi = collected.first().content;
+
+          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); break;
+          if (multi == null) message.reply("This is not Number!"); continue;
+          if (multi < 1) message.reply("The number muss be over 0."); continue;
+          if (multi >= 1) break;
         
           }).catch(err => {
             return message.reply("Time Out!").then(r => r.delete(5000));
           });
+          continue;
           }
 
         } else {
