@@ -133,8 +133,8 @@ module.exports.run = async (bot, message, args) => {
           multi = collected.first().content;
 
           if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000));
-          if (multi == null) message.reply("This is not Number!"); continue;
-          if (multi < 1) message.reply("The number muss be over 0."); continue;
+          if (multi == null) message.reply("This is not Number!");
+          if (multi < 1) message.reply("The number muss be over 0.");
           if (multi >= 1) break;
         
           }).catch(err => {
