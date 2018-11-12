@@ -142,7 +142,6 @@ module.exports.run = async (bot, message, args) => {
           if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000));
           if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000));
           if (multi >= 1) wil2 = parseInt(10000);
-        
           }).catch(err => {
             return message.reply("Time Out!").then(r => r.delete(5000));
           });
