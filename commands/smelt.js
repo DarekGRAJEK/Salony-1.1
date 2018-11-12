@@ -62,7 +62,9 @@ module.exports.run = async (bot, message, args) => {
     if(itemlist === "iron") {
       multi = parseInt(1);
       wil1 = parseInt(1);
+      console.log("PRZED!")
       while (wil1 >= 10000) {
+        console.log("W Pętli!")
       sur1 = sur1 + parseInt(2);
       sur2 = sur2 + parseInt(1);
       get = get + parseInt(1);
