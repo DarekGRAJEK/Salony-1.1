@@ -63,7 +63,7 @@ module.exports.run = async (bot, message, args) => {
       multi = parseInt(1);
       wil1 = parseInt(1);
       console.log("PRZED!")
-      while (wil1 >= 10000) {
+      while (wil1 <= 10000) {
         console.log("W Pętli!")
       sur1 = sur1 + parseInt(2);
       sur2 = sur2 + parseInt(1);
@@ -132,7 +132,7 @@ module.exports.run = async (bot, message, args) => {
         } else if (option === "change") {
           wile = parseInt(1);
           fet = parseInt(0) + multi;
-          while (wil2 >= 10000) { 
+          while (wil2 <= 10000) { 
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!) (defecult").then(r => r.delete(20000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           
