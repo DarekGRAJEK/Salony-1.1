@@ -35,8 +35,8 @@ module.exports.run = async (bot, message, args) => {
     let get = parseInt(0);
     let multi = parseInt(1);
     let fet = parseInt(0);
-    let wil1 = parseInt(0);
-    let wil2 = parseInt(0);
+    let wil1 = false;
+    let wil2 = false;
 
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
@@ -61,10 +61,10 @@ module.exports.run = async (bot, message, args) => {
 
     if(itemlist === "iron") {
       multi = parseInt(1);
-      wil1 = parseInt(0);
+      wil1 = true;
       console.log("PRZED!");
       while (wil1 < 1) {
-      wli1 = parseInt(1);
+      wli1 = false;
       console.log("W Pętli!");
       sur1 = sur1 + parseInt(2);
       sur2 = sur2 + parseInt(1);
@@ -131,23 +131,22 @@ module.exports.run = async (bot, message, args) => {
           .addField("Now Have:", `iron: ${iiron}`);
           return message.channel.send(GetSur).then(r => r.delete(15000));
         } else if (option === "change") {
-          wil2 = parseInt(0);
+          wil2 = true;
           fet = parseInt(0) + multi;
           while (wil2 = 1) {
-          wil2 = parseInt(1); 
+          wil2 = false; 
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!) (defecult").then(r => r.delete(20000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           
           multi = collected.first().content;
 
-          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); wil2 = parseInt(1); wil1 = parseInt(0);
-          if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000)); wil2 = parseInt(0);
-          if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = parseInt(0);
-          if (multi >= 1) wil2 = parseInt(1); wil1 = parseInt(0)
+          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); wil2 = false; wil1 = true;
+          if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000)); wil2 = true;
+          if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = true;
+          if (multi >= 1) wil2 = parseInt(1); wil1 = true;
           }).catch(err => {
             return message.reply("Time Out!").then(r => r.delete(4000));
           });
-          wil2 = parseInt(1);
           }
 
         } else {
