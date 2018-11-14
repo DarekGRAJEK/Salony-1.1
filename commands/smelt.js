@@ -149,7 +149,7 @@ module.exports.run = async (bot, message, args) => {
             return message.reply("Time Out!").then(r => r.delete(4000));
           });
           }
-
+          break;
         } else {
           return message.reply("Canceled!").then(r => r.delete(4000));
         }
@@ -157,7 +157,7 @@ module.exports.run = async (bot, message, args) => {
       }).catch(err => {
        return message.reply("Time Out!").then(r => r.delete(4000));
       });
-      wil1 = parseInt(1);
+      break;
      }
     }
   
