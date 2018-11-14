@@ -89,7 +89,7 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(helpEmbed).then(r => r.delete(20000));
       
       message.reply("Im wait to write option.").then(r => r.delete(10000));
-      await message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+      message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
         let option = collected.first().content;
         
         if(option === "accept") {
