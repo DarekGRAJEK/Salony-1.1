@@ -35,8 +35,8 @@ module.exports.run = async (bot, message, args) => {
     let get = parseInt(0);
     let multi = parseInt(1);
     let fet = parseInt(0);
-    let wil1 = true;
-    let wil2 = true;
+    let wil1 = false;
+    let wil2 = false;
 
 
     let Color = Math.floor(Math.random() * 999999) + 1;
@@ -62,7 +62,6 @@ module.exports.run = async (bot, message, args) => {
 
     if(itemlist === "iron") {
       multi = parseInt(1);
-      wil1 = true;
       console.log("PRZED!");
       while (wil1) {
       wli1 = false;
@@ -132,7 +131,6 @@ module.exports.run = async (bot, message, args) => {
           .addField("Now Have:", `iron: ${iiron}`);
           return message.channel.send(GetSur).then(r => r.delete(15000));
         } else if (option === "change") {
-          wil2 = true;
           fet = parseInt(0) + multi;
           while (wil2) {
           wil2 = false; 
@@ -141,15 +139,15 @@ module.exports.run = async (bot, message, args) => {
           
           multi = collected.first().content;
 
-          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); wil2 = false; wil1 = true;
-          if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000)); wil2 = true;
-          if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = true;
-          if (multi >= 1) wil2 = parseInt(1); wil1 = true;
+          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); wil2 = false; wil1 = false;
+          if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000)); wil2 = false;
+          if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = false;
+          if (multi >= 1) wil2 = parseInt(1); wil1 = false;
           }).catch(err => {
             return message.reply("Time Out!").then(r => r.delete(4000));
           });
           }
-          break;
+          
         } else {
           return message.reply("Canceled!").then(r => r.delete(4000));
         }
@@ -157,7 +155,7 @@ module.exports.run = async (bot, message, args) => {
       }).catch(err => {
        return message.reply("Time Out!").then(r => r.delete(4000));
       });
-      break;
+      
      }
     }
   
