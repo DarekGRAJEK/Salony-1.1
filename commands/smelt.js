@@ -136,7 +136,7 @@ module.exports.run = async (bot, message, args) => {
           while (wil2 = 1) {
           wil2 = parseInt(1); 
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!) (defecult").then(r => r.delete(20000));
-          ccccccmessage.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+          message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
           
           multi = collected.first().content;
 
