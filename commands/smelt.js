@@ -145,24 +145,24 @@ module.exports.run = async (bot, message, args) => {
           if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = parseInt(0);
           if (multi >= 1) wil2 = parseInt(1); wil1 = parseInt(0)
           }).catch(err => {
-            return message.reply("Time Out!").then(r => r.delete(5000));
+            return message.reply("Time Out!").then(r => r.delete(4000));
           });
           wil2 = parseInt(1);
           }
 
         } else {
-          return message.reply("Canceled!").then(r => r.delete(5000));
+          return message.reply("Canceled!").then(r => r.delete(4000));
         }
 
       }).catch(err => {
-       return message.reply("Time Out!").then(r => r.delete(5000));
+       return message.reply("Time Out!").then(r => r.delete(4000));
       });
       wil1 = parseInt(1);
      }
     }
   
   }).catch(err => {
-    return message.reply("Time Out!").then(r => r.delete(5000));
+    return message.reply("Time Out!").then(r => r.delete(4000));
   });
 }
 
