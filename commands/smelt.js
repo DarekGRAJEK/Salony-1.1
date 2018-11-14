@@ -35,8 +35,9 @@ module.exports.run = async (bot, message, args) => {
     let get = parseInt(0);
     let multi = parseInt(1);
     let fet = parseInt(0);
-    let wil1 = false;
-    let wil2 = false;
+    let wil1 = true;
+    let wil2 = true;
+
 
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
@@ -133,7 +134,7 @@ module.exports.run = async (bot, message, args) => {
         } else if (option === "change") {
           wil2 = true;
           fet = parseInt(0) + multi;
-          while (wil2 = 1) {
+          while (wil2 < 1) {
           wil2 = false; 
           message.reply("Please write new Multiplayer. (Write ***Cancel*** to return!) (defecult").then(r => r.delete(20000));
           message.channel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
