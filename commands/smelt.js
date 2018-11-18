@@ -66,7 +66,6 @@ module.exports.run = async (bot, message, args) => {
       console.log("PRZED!");
       do
       {
-      wli1 = parseInt(1);
       console.log("W Pętli!");
       sur1 = sur1 + parseInt(2);
       sur2 = sur2 + parseInt(1);
@@ -143,10 +142,10 @@ module.exports.run = async (bot, message, args) => {
           
           multi = collected.first().content;
 
-          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); wil2 = parseInt(1); wil1 = parseInt(0);
-          if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000)); wil2 = parseInt(0);
-          if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = parseInt(0);
-          if (multi >= 1) wil2 = parseInt(1); wil1 = parseInt(1);
+          if (multi === "cancel") multi = parseInt(0) + fet; message.reply("Returned!").then(r => r.delete(4000)); wil1 = wil1 - parseInt(1); if(wil2 != 1) wil2 = wil2 + parseInt(1); 
+          if (multi == null) message.reply("This is not Number!").then(r => r.delete(4000)); wil2 = wil2 - parseInt(1);
+          if (multi < 1) message.reply("The number muss be over 0.").then(r => r.delete(4000)); wil2 = wil2 - parseInt(1);
+          if (multi >= 1) wil1 = parseInt(1); if(wil2 != wil2)  wil2 = wil2 + parseInt(1);
           }).catch(err => {
             return message.reply("Time Out!").then(r => r.delete(4000));
           });
@@ -159,7 +158,7 @@ module.exports.run = async (bot, message, args) => {
       }).catch(err => {
        return message.reply("Time Out!").then(r => r.delete(4000));
       });
-      
+      wli1 = wil1 + parseInt(1);      
      } while(wil1 < 1)
     }
   
