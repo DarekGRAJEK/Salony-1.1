@@ -37,6 +37,7 @@ module.exports.run = async (bot, message, args) => {
     let name0;
     let name1;
     let name2;
+    let name3;
     let mno = parseInt(0);
     let get = parseInt(0);
     let multi = parseInt(1);
