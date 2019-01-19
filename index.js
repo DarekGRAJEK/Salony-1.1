@@ -5,9 +5,9 @@ const mongodb = require("mongoose")
 const expl = require("./modules/xp.js");
 const moneyd = require("./modules/money.js");
 const token = process.env.token;
-const past = process.env.pass;
+const pass = process.env.pass;
 
-mongodb.connect(`mongodb+srv://Darek:${past}@dvgbot-9wt2w.mongodb.net/exp?retryWrites=true`, { 
+mongodb.connect(`mongodb://Darek:${pass}@dvgbot-shard-00-00-9wt2w.mongodb.net:27017,dvgbot-shard-00-01-9wt2w.mongodb.net:27017,dvgbot-shard-00-02-9wt2w.mongodb.net:27017/test?ssl=true&replicaSet=DVGBOT-shard-0&authSource=admin&retryWrites=true`, {  
     useNewUrlParser: true 
 });
 const ChatCH = new CommandHandler({
