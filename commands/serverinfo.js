@@ -1,6 +1,11 @@
-const Discord = require("discord.js");
-
-module.exports.run = async (bot, message, args) => {
+module.exports = class serverinfo {
+    constructor(){
+            this.name = 'serverinfo',
+            this.alias = ['si'],
+            this.usage = '?serverinfo'
+    }
+ 
+async run(bot, message, args) {
 let sicon = message.guild.avatarURL;
 
 let Color = Math.floor(Math.random() * 999999) + 1;
@@ -15,8 +20,4 @@ let random = "#" + Color;
       .addField("Total Members", message.guild.memberCount);
 
       message.channel.send(serverembed).then(msg => {msg.delete(5000)});
-}
-
-module.exports.help = {
-    name: "serverinfo"
-}
+}}

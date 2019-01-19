@@ -1,8 +1,12 @@
-const Discord = require("discord.js");
-
-module.exports.run = async (bot, message, args) => {
-  //!shop
-  if(args[0] == "help"){
+module.exports = class roll {
+    constructor(){
+            this.name = 'roll',
+            this.alias = ['rll'],
+            this.usage = '?roll'
+    }
+ 
+async run(bot, message, args) {
+if(args[1] == "help"){
     message.reply("Usage: !roll");
     return;
   }
@@ -24,8 +28,4 @@ module.exports.run = async (bot, message, args) => {
   } else {
       message.reply("Error")
   }
-}
-
-module.exports.help = {
-    name: "roll"
-}
+}}

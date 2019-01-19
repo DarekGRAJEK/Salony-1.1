@@ -1,76 +1,71 @@
 const Discord = require("discord.js");
-const errors = require("../utility/error.js");
-const fs = require("fs");
-let coins = require("../coins.json");
+const moneyd = require("../modules/money.js");
 
-module.exports.run = async (bot, message, args) => {
-
-  await message.delete();
+module.exports = class flip {
+    constructor(){
+            this.name = 'flip',
+            this.alias = ['fp'],
+            this.usage = '?flip'
+    }
+    
+    async run(bot, message, args) {
+        await message.delete();
   let Color = Math.floor(Math.random() * 999999) + 1;
   let random = "#" + Color;
-  if(args[0] == "help"){
-    message.reply("Usage: !flip <tails/eagle>");
+  if(args[1] == "help"){
+    message.reply("Usage: !flip <tails/eagle> <ammount>");
+    
     return;
   }
   
   let replies = ["tails", "eagle"];
   let result = Math.floor((Math.random()* replies.length));
-  let PlaceBet = args[1];
+  let PlaceBet = args[2];
   let eagle = "eagle";
   let tails = "tails";
   let PResult = replies[result]
   let x;
-  let uCoins = coins[message.author.id].coins;
-  console.log(`${args[0]} ; ${PResult}`);
-  if (args[0] != tails && args[0] != eagle) return message.channel.send("Please write eagle or tails.");
+  moneyd.findOne({
+    Serverid: message.guild.id,
+    id: message.author.id
+}, (err, moneir) => {
+    if(err) console.log(err);
+  let uCoins = moneir.money;
+  if (args[1] != tails && args[1] != eagle) return message.channel.send("Please write eagle or tails.");
   let ert = 9;
-  console.log(`${ert} | ${PlaceBet}`);
-  if (ert >= args[1]) return message.channel.send("Please write number greater or equal than 10!");
-  if (uCoins < args[1]) return message.reply("You don't have money");
-  if (args[1] <= 20) {x = 1.79}
-  if (args[1] <= 50 && args[1] > 20) {x = 1.594}
-  if (args[1] <= 75 && args[1] > 50) {x = 1.456}
-  if (args[1] <= 100 && args[1] > 75) {x = 1.33}
-  if (args[1] <= 1000 && args[1] > 100) {x = 1.139}
-  if (args[1] >= 1001) {x = 1.09}
-  if (PResult == args[0])
+  if (ert >= args[2]) return message.channel.send("Please write number greater or equal than 10!");
+  if (uCoins < args[2]) return message.reply("You don't have money");
+  if (args[2] <= 20) {x = 0.68}
+  if (args[2] <= 50 && args[1] > 20) {x = 0.478}
+  if (args[2] <= 75 && args[1] > 50) {x = 0.345}
+  if (args[2] <= 100 && args[1] > 75) {x = 0.276}
+  if (args[2] <= 1000 && args[1] > 100) {x = 0.145}
+  if (args[2] >= 1001) {x = 0.078}
+  if (PResult == args[1])
   {
     let wpo = parseInt(PlaceBet) * x;
-    coins[message.author.id] = {
-      coins: coins[message.author.id].coins + parseInt(wpo)
-    };
-
+      moneir.money = moneir.money + parseInt(wpo);
+      
     let Winembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor(random)
-    .addField("Placed by you", args[0])
+    .addField("Placed by you", args[1])
     .addField("Drawn", replies[result])
     .addField("Win/Lose", "WIN!!!")
 
     message.channel.send(Winembed);
+    
   } else {
-    coins[message.author.id].coins = uCoins - parseInt(PlaceBet);
-
+    moneir.money = moneir.money - parseInt(PlaceBet);
     let Loseembed = new Discord.RichEmbed()
     .setAuthor(message.author.tag)
     .setColor(random)
-    .addField("Placed by you", args[0])
+    .addField("Placed by you", args[1])
     .addField("Drawn", replies[result])
     .addField('Win/Lose', "LOSE!!!")
     message.channel.send(Loseembed);
+    
   }
-
-
-  
-  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-    if(err) cosole.log(err)
+  moneir.save().catch(err => console.log(err));
   });
-
- 
- 
-}
-
-
-module.exports.help = {
-    name: "flip"
-  }
+}}

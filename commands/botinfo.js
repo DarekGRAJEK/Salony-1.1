@@ -1,8 +1,15 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports = class botinfo {
+    constructor(){
+            this.name = 'botinfo',
+            this.alias = ['bi'],
+            this.usage = '?botinfo'
+    }
+ 
+    async run(bot, message, args) {
     await message.delete();
-    if(args[0] == "help"){
+    if(args[1] == "help"){
         message.reply("Usage: !botinfo");
        return;
     }
@@ -18,11 +25,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Bot Name", bot.user.username)
     .addField("Prefix (conventional) is", "**$**")
     .addField("Created by", "DarekGRAJEK")
-    .addField("Version:", "Pre-Alfa *1* (1.6.0)");
+    .addField("Version:", "Alfa *1.7* (1.6.0)");
 
     message.channel.send(botembed);
-
-}
- module.exports.help = {
-    name: "botinfo"
-}
+}}

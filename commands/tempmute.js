@@ -1,9 +1,15 @@
 const Discord = require("discord.js");
 const ms = require("ms");
-const errors = require("../utility/error.js")
 
+module.exports = class tempmute {
+    constructor(){
+            this.name = 'tempmute',
+            this.alias = ['tm'],
+            this.usage = '?tempmute'
+    }
+ 
+    async run(bot, message, args) {
 
-module.exports.run = async (bot, message, args) => {
 
   //!tempmute @user 1s/m/h/d
   if(args[0] == "help"){
@@ -11,8 +17,8 @@ module.exports.run = async (bot, message, args) => {
     return;
   }
 
-  let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return errors.cantfindUser(channel);
+  let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+  if(!tomute) return message.reply("You don't have permission.");
   if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!").then(m => m.delete(5000));
   let muterole = message.guild.roles.find(`name`, "🔕🔇");
   //start of create role
@@ -34,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
     }
   }
   //end of create role
-  let mutetime = args[1];
+  let mutetime = args[2];
   if(!mutetime) return message.reply("You didn't specify a time!").then(m => m.delete(5000));
 
   await(tomute.addRole(muterole.id));
@@ -47,8 +53,4 @@ module.exports.run = async (bot, message, args) => {
 
 
 //end of module
-}
-
-module.exports.help = {
-  name: "tempmute"
-}
+}}

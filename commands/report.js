@@ -1,20 +1,25 @@
-const Discord = require("discord.js");
-const errors = require("../utility/error.js");
+const Discord = require("discord.js")
 
-module.exports.run = async (bot, message, args) => {
-
-    await message.delete();
-    if(args[0] == "help"){
+module.exports = class report {
+    constructor(){
+            this.name = 'report',
+            this.alias = ['rt'],
+            this.usage = '?report'
+    }
+ 
+async run(bot, message, args) {
+await message.delete();
+    if(args[1] == "help"){
         message.reply("Usage: !report <user> <reason>");
         return;
     }
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
 
-    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
     if(!rUser) return errors.cantfindUser(channel);
     
-    let reason = args.join(" ").slice(22);
+    let reason = args.slice(1).join(" ").slice(50);
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Report")
@@ -29,10 +34,4 @@ module.exports.run = async (bot, message, args) => {
     if(!reportschannel) return message.channel.send("Couldn't find reports channel");
 
     reportschannel.send(reportEmbed);
-
-}
-
-
-module.exports.help = {
-    name: "report"
-}
+}}

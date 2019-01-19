@@ -1,13 +1,17 @@
 const Discord = require("discord.js");
-const fs = require("fs");
-const errors = require("../utility/error.js");
-let coins = require("../coins.json");
+const Money = require("../modules/money.js");
 
-
-module.exports.run = async (bot, message, args) => {
+module.exports = class pay {
+    constructor(){
+            this.name = 'pay',
+            this.alias = ['py'],
+            this.usage = '?pay'
+    }
+ 
+async run(bot, message, args) {
   //!pay @isatisfied 59345
   await message.delete();
-  if(args[0] == "help"){
+  if(args[1] == "help"){
     message.reply("Usage: !pay <nick> <amounce>");
     return;
   }
@@ -16,36 +20,33 @@ module.exports.run = async (bot, message, args) => {
     return message.reply("You do not have any money!")
   }
 
-  let pUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if (!pUser) return errors.cantfindUser(channel);
-  if(!coins[pUser.id]){
-    coins[pUser.id] = {
-      coins: 0
-    };
-  }
+  let pUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[1]);
+  if (!pUser) return message.reply("I can't find this persone.");
+  Money.findOne({
+    Serverid: message.guild.id,
+    id: message.author.id
+    }, (err, moneir) => {
+    if(err) console.log(err);
+    let pCoins = moneir.money;
+    if(pCoins < args[0]) return message.reply("What you want to send costs you more than you have on your account.").then(msg => {msg.delete(5000)});
+        
+    moneir.money = pCoins - parseInt(args[1])    
 
-  let pCoins = coins[pUser.id].coins;
-  let sCoins = coins[message.author.id].coins;
-
-  if(sCoins < args[0]) return message.reply("What you want to send costs you more than you have on your account.").then(msg => {msg.delete(5000)});
-
-  coins[message.author.id] = {
-    coins: sCoins - parseInt(args[1])
-  };
-
-  coins[pUser.id] = {
-    coins: pCoins + parseInt(args[1])
-  };
+    moneir.save().catch(err => console.log(err));
+    });
+  
+    Money.findOne({
+        Serverid: message.guild.id,
+        id: pUser.id
+        }, (err, moneid) => {
+        if(err) console.log(err);
+        let sCoins = moneid.money;
+        if(pCoins < args[0]) return;
+            
+        moneid.money = pCoins - parseInt(args[1])    
+    
+        moneid.save().catch(err => console.log(err));
+        });
 
   message.channel.send(`${message.author} pay to ${pUser} ${args[1]} $.`);
-
-  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-    if(err) cosole.log(err)
-  });
-
-
-}
-
-module.exports.help = {
-  name: "pay"
-}
+}}

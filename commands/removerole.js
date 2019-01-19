@@ -1,16 +1,22 @@
-const Discord = require("discord.js");
-const errors = require("../utility/error.js");
+const Discord = require("discord.js")
 
-module.exports.run = async (bot, message, args) => {
+module.exports = class removeRole {
+    constructor(){
+            this.name = 'removerole',
+            this.alias = ['rrole'],
+            this.usage = '?removerole'
+    }
+ 
+async run(bot, message, args) {
 
-  if (!message.member.hasPermission("MANAGE_ROLES")) return errors.noPerms(message, "MANAGE_ROLES");
+if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("You don't have permission.");
   if(args[0] == "help"){
     message.reply("Usage: !removerole <user> <role>");
     return;
   }
-  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[1]);
   if(!rMember) return errors.cantfindUser(channel);
-  let role = args.join(" ").slice(22);
+  let role = args.slice(1).join(" ").slice(22);
   if(!role) return message.reply("Specify a role!").then(m => m.delete(5000));
   let gRole = message.guild.roles.find(`name`, role);
   if(!gRole) return errors.notfindRole(message);
@@ -24,7 +30,4 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`RIP to <@${rMember.id}>, We removed ${gRole.name} from them. We tried to DM them, but their DMs are locked.`).then(m => m.delete(5000));
   }
 }
-
-module.exports.help = {
-  name: "removerole"
 }

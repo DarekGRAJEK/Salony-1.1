@@ -1,168 +1,119 @@
-const botconfig = require("./botconfig.json");
-const token =  process.env.token;
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const fs = require("fs");
-let coins = require("./coins.json");
-let xp = require("./xp.json");
-let invt = require("./inventory.json");
-let purple = botconfig.purple;
-let cooldown = new Set();
-let cdseconds = 1;
-bot.commands = new Discord.Collection();
-
-fs.readdir("./commands/", (err, files) => {
-
-  if(err) console.log(err);
-  let jsfile = files.filter(f => f.split(".").pop() === "js");
-  if(jsfile.length <= 0){
-    console.log("Couldn't find commands.");
-    return;
-  }
-
-  jsfile.forEach((f, i) =>{
-    let props = require(`./commands/${f}`);
-    console.log(`${f} loaded!`);
-    bot.commands.set(props.help.name, props);
-  });
+const token = require("./token.json");
+const { CommandHandler } = require("djs-commands");
+const mongodb = require("mongoose")
+const expl = require("./modules/xp.js");
+const moneyd = require("./modules/money.js");
+const token = process.env.token;
+const pass = process.env.pass;
+mongodb.connect(`mongodb+srv://Darek:${pass}@dvgbot-9wt2w.mongodb.net/exp?retryWrites=true`, { 
+    useNewUrlParser: true 
+});
+const ChatCH = new CommandHandler({
+    folder: __dirname + '/commands/',
+    prefix: ['$', 'D$', 'DVG$']
 });
 
-bot.on("ready", async () => {
-
-  console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-  bot.user.setActivity("DevServer & This", {type: "WATCHING"});
-
+const DMCH = new CommandHandler({
+    folder: __dirname + '/fungame/',
+    prefix: ['$', 'D$', 'DVG$']
 });
 
-bot.on("guildMemberAdd", async member => {
 
-  console.log("User Joined!!!");
 
-  let channel = member.guild.channels.find(`name`, "logi-publiczne");
-  channel.send(`${member} wbił na serwer!`);
-
+bot.on("ready", () => {
+    console.log(bot.user.username + " is Online!");
 });
 
-bot.on("guildMemberRemove", async member => {
+bot.on("message", (message) => {
+    if(message.author.bot) return;
+    if(message.channel.type === 'dm' && message.channel.type != 'text') {
+        let args = message.content.split(" ");
+        let command = args[0];
+        let cmd = DMCH.getCommand(command);
+        if(!cmd) return;
+        console.log(message.channel.type);
+        try{
+            cmd.run(bot,message,args);
+        }catch(e){
+            console.log(e);
+        }
+    }
+    expl.findOne({
+        Serverid: message.guild.id,
+        id: message.author.id
+    }, (err, exp) => {
+        if (err) console.log(err);
+        if(!exp && message.author.id != "535791952193388545"){
+            const newExp = new expl({
+                Serverid: message.guild.id,
+                id: message.author.id,
+                xp: 0,
+                level: 1,
+                next: 100
+            })
 
-  console.log("User Leave!!!");
+            newExp.save().catch(err => console.log(err));
+        }else{
+            let Addxp = Math.ceil(Math.random() * 17);
+            let getexp = exp.xp;
+            let level = exp.level;
+            exp.xp = getexp + Addxp;
+            let defneed = exp.next;
+            if (defneed <= getexp){
+                let defex = parseInt(defneed) * parseFloat(1.798);
+                exp.next = parseInt(defex);
+                exp.xp = parseInt(getexp) * parseInt(0);
+                exp.level = parseInt(level) + parseInt(1);
+                let lvlup = new Discord.RichEmbed()
+                .setTitle("Level Up!")
+                .setColor("#FF00FF")
+                .addField("New Level", exp.level);
 
-  let channel = member.guild.channels.find(`name`, "logi-publiczne");
-  channel.send(`${member} wyszedł z serwera!`);
+                message.channel.send(lvlup).then(msg => {msg.delete(5000)});
+            }
+            exp.save().catch(err => console.log(err));
+        }
+    });
+    moneyd.findOne({
+        Serverid: message.guild.id,
+        id: message.author.id
+    }, (err, money) => {
+        if (err) console.log(err);
+        if(!money && message.author.id != "535791952193388545"){
+            const newmoney = new moneyd({
+                Serverid: message.guild.id,
+                id: message.author.id,
+                money: 0
+            })
+            newmoney.save().catch(err => console.log(err));
+        }else{
+            let moneyadd = Math.floor(Math.random() * 100) + 1;
+            let moneymuss = Math.floor(Math.random() * 100) + 1;
+            let getmoney = money.money;
+            if (moneyadd == moneymuss){
+                let defex = parseInt(getmoney) + parseInt(moneyadd);
+                money.money = parseInt(defex);
+                let coinEmbed = new Discord.RichEmbed()
+                .setAuthor(message.author.username)
+                .setColor("#0000FF")
+                .addField(`💸💸`, `${moneyadd} coins added!`);
 
-});
-
-bot.on("message", async message => {
-
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
-
-  if(!coins[message.author.id]){
-    coins[message.author.id] = {
-      coins: 0
-    };
-  }
-
-  if(!invt[message.author.id]){
-    invt[message.author.id] = {
-        id300: 0, // Rare
-        id2: 0, // Legendary
-        id101: 0, //Common
-        id103: 0,  //Common
-        id102: 0, //common
-        id105: 0, //Uncommon
-        id104: 0, //Epic
-        id6: 0, // Legendary
-        id301: 0, // Rare
-        id7: 0, // common
-        id107: 0, // Rare
-        id108: 0, // Rare
-        id106: 0, // Uncommon
-        id10000: 0, // Limited
-        id4: 0, //ore
-        id3: 0, //ore
-        id1: 0, //ore
-        id5: 0, //ore
-        id8: 0, //ore
-        id9: 0, //ore
-        id0: 0,  //ore
-        id100: 0 //ore
-    };
-  }
-
-  fs.writeFile("./coins.json", JSON.stringify(invt), (err) => {
-    if (err) console.log(err)
-  });
-
-  let coinAmt = Math.floor(Math.random() * 100) + 1;
-  let baseAmt = Math.floor(Math.random() * 100) + 1;
-  console.log(`${coinAmt} ; ${baseAmt}`);
-
-  if(coinAmt === baseAmt){
-    coins[message.author.id] = {
-      coins: coins[message.author.id].coins + coinAmt
-    };
-  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-    if (err) console.log(err)
-  });
-  let coinEmbed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#0000FF")
-  .addField("??", `${coinAmt} coins added!`);
-
-  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
-  }
-
-  let xpAdd = Math.floor(Math.random() * 14) + 8;
-  console.log(xpAdd);
-
-  if(!xp[message.author.id]){
-    xp[message.author.id] = {
-      xp: 0,
-      level: 1
-    };
-  }
-
-
-  let curxp = xp[message.author.id].xp;
-  let curlvl = xp[message.author.id].level;
-  let nxtLvl = xp[message.author.id].level * 346;
-  xp[message.author.id].xp =  curxp + xpAdd;
-  if(nxtLvl <= xp[message.author.id].xp){
-    xp[message.author.id].level = curlvl + 1;
-    xp[message.author.id].xp = 0;
-    let lvlup = new Discord.RichEmbed()
-    .setTitle("Level Up!")
-    .setColor(purple)
-    .addField("New Level", curlvl + 1);
-
-    message.channel.send(lvlup).then(msg => {msg.delete(5000)});
-  }
-  fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-    if(err) console.log(err)
-  });
-    
-  let prefix = botconfig.prefix;
-  if(!message.content.startsWith(prefix)) return;
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("You have to wait 5 seconds between commands.")
-  }
-  if(!message.member.hasPermission("ADMINISTRATOR")){
-    cooldown.add(message.author.id);
-  } 
-
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  let commandfile = bot.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(bot,message,args);
-
-  setTimeout(() => {
-    cooldown.delete(message.author.id)
-  }, cdseconds * 1000)
-
+                message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
+            }
+            money.save().catch(err => console.log(err));
+        }
+    });
+    let args = message.content.split(" ");
+    let command = args[0];
+    let cmd = ChatCH.getCommand(command);
+    if(!cmd) return;
+    try{
+        cmd.run(bot,message,args);
+    }catch(e){
+        console.log(e);
+    }
 });
 
 bot.login(token);
