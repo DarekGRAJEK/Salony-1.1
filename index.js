@@ -5,8 +5,8 @@ const mongodb = require("mongoose")
 const expl = require("./modules/xp.js");
 const moneyd = require("./modules/money.js");
 const token = process.env.token;
-const pass = process.env.pass;
-mongodb.connect(`mongodb+srv://Darek:${pass}@dvgbot-9wt2w.mongodb.net/exp?retryWrites=true`, { 
+const past = process.env.pass;
+mongodb.connect(`mongodb+srv://Darek:${past}@dvgbot-9wt2w.mongodb.net/exp?retryWrites=true`, { 
     useNewUrlParser: true 
 });
 const ChatCH = new CommandHandler({
