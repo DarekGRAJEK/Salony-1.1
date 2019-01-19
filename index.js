@@ -40,7 +40,6 @@ bot.on("message", (message) => {
             console.log(e);
         }
     }
-    console.log(past);
     expl.findOne({
         Serverid: message.guild.id,
         id: message.author.id
