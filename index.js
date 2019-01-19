@@ -6,7 +6,7 @@ const expl = require("./modules/xp.js");
 const moneyd = require("./modules/money.js");
 const token = process.env.token;
 const past = process.env.pass;
-console.log(past);
+
 mongodb.connect(`mongodb+srv://Darek:${past}@dvgbot-9wt2w.mongodb.net/exp?retryWrites=true`, { 
     useNewUrlParser: true 
 });
@@ -40,6 +40,7 @@ bot.on("message", (message) => {
             console.log(e);
         }
     }
+    console.log(past);
     expl.findOne({
         Serverid: message.guild.id,
         id: message.author.id
