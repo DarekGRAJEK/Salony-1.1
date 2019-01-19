@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const token = require("./token.json");
 const { CommandHandler } = require("djs-commands");
 const mongodb = require("mongoose")
 const expl = require("./modules/xp.js");
