@@ -4,7 +4,9 @@ const xpShema = mongoose.Schema({
     id: String,
     xp: Number,
     level: Number,
-    next: Number
+    next: Number,
+    money: Number,
+    RankBot: String
 });
 
-module.exports = mongoose.model("exp", xpShema);
+module.exports = mongoose.model("stats", xpShema);
