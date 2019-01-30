@@ -15,7 +15,6 @@ module.exports = class serverinfo {
             Serverid: message.guild.id
         }, (err, stat) => {
             if (err) console.log(err);
-            message.channel.send(`You Rank: ${stat.RankBot}`);
             if (stat.RankBot === "Owner" || stat.RankBot === "BotDev") {
                 menuho();
             } else {
