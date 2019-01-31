@@ -19,7 +19,7 @@ module.exports = class help {
         //    message.channel.send(helpEmbed).then(msg => {msg.delete(20000)});
 
         const filter = m => m.author.id === message.author.id;
-        message.reply("Please write a option to see catalog! (adm, mod, user, setting, arcade, fun)").then(r => r.delete(10000));
+        message.reply("Please write a option to see catalog! (for example: Owner)").then(r => r.delete(10000));
         let helpEmbed = new Discord.RichEmbed()
             .setTitle("Help Menu")
             .setColor(random)

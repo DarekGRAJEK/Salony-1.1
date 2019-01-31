@@ -1,6 +1,6 @@
 const moduled = require("../modules/module.js");
 
-module.exports = class ban {
+module.exports = class dig {
     constructor() {
         this.name = 'dig',
             this.alias = ['dg'],

@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 
-module.exports = class help {
+module.exports = class ball {
     constructor() {
         this.name = '8ball',
             this.alias = ['8'],

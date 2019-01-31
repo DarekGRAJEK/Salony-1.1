@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const stats = require("../modules/stats.js")
-module.exports = class help {
+module.exports = class addbotrole {
     constructor() {
         this.name = 'addSRole',
             this.alias = ['addSR'],

@@ -2,7 +2,7 @@ const sopt = require("../modules/serveroptions.js");
 const stats = require("../modules/stats.js");
 const Discord = require("discord.js");
 
-module.exports = class serverinfo {
+module.exports = class serveroption {
     constructor() {
         this.name = 'soption',
             this.alias = ['so'],

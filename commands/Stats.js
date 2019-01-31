@@ -1,7 +1,7 @@
 const exp = require("../modules/stats.js");
 const discord = require("discord.js");
 
-module.exports = class xp {
+module.exports = class stats {
     constructor() {
         this.name = 'profile',
             this.alias = ['pf'],
