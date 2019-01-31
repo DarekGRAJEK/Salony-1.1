@@ -121,7 +121,7 @@ module.exports = class inventory {
                     .addField("Stone", mod.id31)
                     .addField("Coal", mod.id7)
                     .addField("Iron ingot", mod.id32)
-                    .addField("Tin ingot", mod.i33)
+                    .addField("Tin ingot", mod.id33)
                     .addField("Copper ingot", mod.id34)
                     .addField("Gear", mod.id101)
                     .addField("???", "0")
