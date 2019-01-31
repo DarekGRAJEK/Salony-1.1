@@ -12,8 +12,8 @@ module.exports = class ball {
             message.reply("Usage: !8ball <Question>");
             return;
         }
-        if (args[0] == "Czy" || args[0] == "czy") {
-            if (!args[2]) return message.reply("Please ask a full question")
+        if (args[1] == "Czy" || args[1] == "czy") {
+            if (!args[3]) return message.reply("Please ask a full question")
             let replies = ["Tak.", "Nie.", "Może.", "Nie wiem", "Napewno Tak.", "Napewno Nie.", "Nie Moge Odpowiedzieć na to pytanie.", "Chyba tak", "Chyba nie"];
 
             let result = Math.floor((Math.random() * replies.length));
@@ -29,8 +29,8 @@ module.exports = class ball {
 
             message.channel.send(ballembed);
         }
-        if (args[0] == "Kiedy" || args[0] == "kiedy") {
-            if (!args[2]) return message.reply("Please ask a full question")
+        if (args[1] == "Kiedy" || args[1] == "kiedy") {
+            if (!args[3]) return message.reply("Please ask a full question")
             let number = Math.floor(Math.random() * 29) + 1;
             let replies = [number + " Stycznia", number + " Lutego", number + " Marca", number + " Kwietnia", number + " Maja", number + " Czerwca", number + " Lipca", number + " Sierpnia", number + " Września", number + " Października", number + " Listopada", number + " Grudnia", "Jutro", "Za Tydzień", "Za Miesiąc", "Za Rok"];
 
