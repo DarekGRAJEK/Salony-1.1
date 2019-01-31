@@ -14,12 +14,12 @@ module.exports = class inventory {
             idplayer: message.author.id
         }, (err, mod) => {
             if (err) console.log(err);
+            let Color = Math.floor(Math.random() * 999999) + 1;
+            let random = "#" + Color;
             let numberpage = parseInt(1);
             start();
             function start() {
                 numberpage = parseInt(1);
-                let Color = Math.floor(Math.random() * 999999) + 1;
-                let random = "#" + Color;
                 let inventory = new Discord.RichEmbed()
                     .setTitle("Iventory")
                     .setDescription("Your inventory.")
@@ -59,7 +59,9 @@ module.exports = class inventory {
                         return message.reply("ERROR! or wrong segment!")
                     }
                 }).catch(err => {
+                    console.log(err);
                     return message.reply("Time Out!").then(r => r.delete(4000));
+                    
                 });
             }
 
@@ -83,7 +85,7 @@ module.exports = class inventory {
                     .addField("Titan ore", mod.id9)
                     .addField("Quarc ore", mod.id8)
                     .addField("Rock", mod.id0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -123,7 +125,7 @@ module.exports = class inventory {
                     .addField("Copper ingot", mod.id34)
                     .addField("Gear", mod.id101)
                     .addField("???", "0")
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -162,7 +164,7 @@ module.exports = class inventory {
                     .addField("???", 0)
                     .addField("???", 0)
                     .addField("???", 0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -201,7 +203,7 @@ module.exports = class inventory {
                     .addField("???", 0)
                     .addField("???", 0)
                     .addField("???", 0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -240,7 +242,7 @@ module.exports = class inventory {
                     .addField("???", 0)
                     .addField("???", 0)
                     .addField("???", 0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -279,7 +281,7 @@ module.exports = class inventory {
                     .addField("???", 0)
                     .addField("???", 0)
                     .addField("???", 0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -318,7 +320,7 @@ module.exports = class inventory {
                     .addField("???", 0)
                     .addField("???", 0)
                     .addField("???", 0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -357,7 +359,7 @@ module.exports = class inventory {
                     .addField("???", 0)
                     .addField("???", 0)
                     .addField("???", 0)
-                    .addFooter("page 1/1");
+                    .setFooter("page 1/1");
                 message.channel.send(ored).then(r => r.delete(10000));
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
