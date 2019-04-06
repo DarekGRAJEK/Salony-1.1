@@ -37,8 +37,6 @@ bot.on("guildMemberAdd", async member => {
 });
 
 bot.on("guildMemberRemove", async member => {
-
-<<<<<<< HEAD
   console.log("User Leave!!!");
 
   let channel = member.guild.channels.find(`name`, "logi-publiczne");
@@ -135,7 +133,6 @@ bot.on("message", async message => {
   fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
     if(err) console.log(err)
   });
-=======
     soption.findOne({
         Serverid: member.guild.id
     }, (err, so) => {
@@ -147,8 +144,6 @@ bot.on("message", async message => {
             return;
         }
     })
->>>>>>> 2
-    
 
 });
 
