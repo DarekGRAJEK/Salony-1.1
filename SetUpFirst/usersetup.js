@@ -1,6 +1,6 @@
 const statsed = require("../modules/stats.js");
-module.exports = function () {
-    this.user = function (message) {
+module.exports = function (message) {
+    this.user = function () {
         statsed.findOne({
             Serverid: message.guild.id,
             id: message.author.id

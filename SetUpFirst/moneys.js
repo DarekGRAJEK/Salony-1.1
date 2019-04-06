@@ -1,6 +1,6 @@
 const discord = require('discord.js');
 const moduled = require("../modules/module.js");
-module.exports = function() {
+module.exports = function(message) {
     this.CraftinGame = function() {
         moduled.findOne({
             idserver: message.guild.id,

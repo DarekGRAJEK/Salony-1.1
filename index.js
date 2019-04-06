@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({ disableEveryone: true });
 const { CommandHandler } = require("djs-commands");
 const mongodb = require("mongoose");
-require('./SetUpFirst/moneys.js')();
-require('./SetUpFirst/usersetup.js')();
 const soption = require("./modules/serveroptions.js");
 const token = process.env.token;
 const pass = process.env.pass;
@@ -47,7 +45,8 @@ bot.on("message", (message) => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
     if (message.channel.type === 'text') {
-
+        require('./SetUpFirst/moneys.js')(message);
+        require('./SetUpFirst/usersetup.js')(message);
         CraftinGame();
         user(message);
 
