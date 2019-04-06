@@ -28,19 +28,7 @@ module.exports = class kick {
     let Color = Math.floor(Math.random() * 999999) + 1;
     let random = "#" + Color;
 
-<<<<<<< HEAD
-  let kickEmbed = new Discord.RichEmbed()
-  .setDescription("~Kick~")
-  .setColor(random)
-  .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-  .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
-  .addField("Kicked In", message.channel)
-  .addField("Time", message.createdAt)
-  .addField("Reason", kReason);
 
-  let kickChannel = message.guild.channels.find(`name`, "bot-logs");
-  if(!kickChannel) return message.channel.send("Can't find incidents channel.");
-=======
     let banEmbed = new Discord.RichEmbed()
       .setDescription("~Kick~")
       .setColor(random)
@@ -55,7 +43,6 @@ module.exports = class kick {
       if (err) console.log(err);
       let kickChannel = message.guild.channels.find(`name`, `${so.botlog}`);
       if (!kickChannel) return message.channel.send("Can't find incidents channel.");
->>>>>>> 2
 
       message.guild.member(bUser).kick(bReason);
       kickChannel.send(banEmbed);
