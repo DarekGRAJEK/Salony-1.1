@@ -18,7 +18,7 @@ module.exports = class serveroption {
             if (stat.RankBot === "Owner" || stat.RankBot === "BotDev") {
                 menuho();
             } else {
-                message.reply("You don't have permision!");
+               return message.reply("You don't have permision!");
             }
         });
 
@@ -40,7 +40,7 @@ module.exports = class serveroption {
                     .addField("Report Channel:", `${sopts.report} (report)`)
                     .addField("Join Notification", `${sopts.inserver} (join)`)
                     .addField("Left Notification", `${sopts.outserver} (left)`);
-                message.channel.send(helpEmbed).then(r => r.delete(10000));
+                message.channel.send(helpEmbed).then(r => r.delete(15000));
             });
             message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
                 if (collected.first().content === "ann") {
@@ -204,7 +204,7 @@ module.exports = class serveroption {
                     .setTitle("Reported Channel")
                     .setColor(random)
                     .setDescription("The Segment!")
-                    .addField("Old:", `${sopt.report}`)
+                    .addField("Old:", `${sopts.report}`)
                     .addField("New:", `...`);
                 message.channel.send(newlet).then(r => r.delete(10000));
                 message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
