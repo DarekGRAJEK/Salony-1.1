@@ -1,17 +1,18 @@
 {
-  "name": "bot",
+  "name": "DVG-1.6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "djs-commands": "^1.2.2",
+    "mongoose": "^5.4.4"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "DarekGRAJEK",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^11.4.2",
-    "mongodb-stitch-browser-sdk": "^4.0.13",
-    "ms": "^2.1.1",
-    "nodemon": "^1.18.3"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

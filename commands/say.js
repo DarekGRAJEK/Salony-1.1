@@ -1,19 +1,31 @@
-const Discord = require("discord.js");
-const errors = require("../utility/error.js");
-
-module.exports.run = async (bot, message, args) => {
-
-  message.delete();
-  if(args[0] == "help"){
-    message.reply("Usage: !say <text>");
-    return;
+const stats = require("../modules/stats.js")
+module.exports = class say {
+  constructor() {
+    this.name = 'say',
+      this.alias = ['s'],
+      this.usage = '?say'
   }
 
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
-  let botmessage = args.join(" ");
-  message.channel.send(botmessage);
+  async run(bot, message, args) {
+
+    message.delete();
+    if (args[0] == "help") {
+      message.reply("Usage: !say <text>");
+      return;
+    }
+
+    stats.findOne({
+      Serverid: message.guild.id,
+      id: message.author.id
+    }, (err, st) => {
+      if (err) console.log(err);
+      if (st.RankBot != "Admin" && st.RankBot != "Owner" && st.RankBot != "BotDev") return message.reply("You don't have permission.");
+    });
+    let botmessage = args.slice(1).join(" ");
+
+    message.channel.send(botmessage);
+  }
 }
 
-module.exports.help = {
-  name: "say"
-}
+
+

@@ -1,21 +1,34 @@
-const Discord = require("discord.js");
-const errors = require("../utility/error.js")
-
-module.exports.run = async (bot, message, args) => {
-  await message.delete();
-  let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!kUser) return errors.cantfindUser(channel);
-  let kReason = args.join(" ").slice(22);
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES")
-  if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-  let Color = Math.floor(Math.random() * 999999) + 1;
-  let random = "#" + Color;
-  if(args[0] == "help"){
-    message.reply("Usage: !kick <nick> <reason>");
-    return;
+const Discord = require("discord.js")
+const soption = require("../modules/serveroptions.js")
+const stats = require("../modules/stats.js")
+module.exports = class kick {
+  constructor() {
+    this.name = 'kick',
+      this.alias = ['kk'],
+      this.usage = '?kick'
   }
 
+  async run(bot, message, args) {
+    await message.delete();
+    if (args[0] == "help") {
+      message.reply("Usage: !ban <user> <reason>");
+      return;
+    }
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+    if (!bUser) return message.reply("I can't find this persone.");
+    let bReason = args.slice(1).join(" ").slice(22);
+    stats.findOne({
+      Serverid: message.guild.id,
+      id: message.author.id
+    }, (err, st) => {
+      if (err) console.log(err);
+      if (st.RankBot != "Admin" && st.RankBot != "Owner" && st.RankBot != "Mod" && st.RankBot != "BotDev") return message.channel.send("That person can't be banned!");
+      if (st.RankBot != "Admin" && st.RankBot != "Owner" && st.RankBot != "Mod" && st.RankBot != "BotDev") return message.reply("You don't have permission.");
+    });
+    let Color = Math.floor(Math.random() * 999999) + 1;
+    let random = "#" + Color;
 
+<<<<<<< HEAD
   let kickEmbed = new Discord.RichEmbed()
   .setDescription("~Kick~")
   .setColor(random)
@@ -27,11 +40,25 @@ module.exports.run = async (bot, message, args) => {
 
   let kickChannel = message.guild.channels.find(`name`, "bot-logs");
   if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+=======
+    let banEmbed = new Discord.RichEmbed()
+      .setDescription("~Kick~")
+      .setColor(random)
+      .addField("Kicked User", `${bUser} with ID ${bUser.id}`)
+      .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+      .addField("Kicked In", message.channel)
+      .addField("Time", message.createdAt)
+      .addField("Reason", bReason);
+    soption.findOne({
+      Serverid: message.guild.id
+    }, (err, so) => {
+      if (err) console.log(err);
+      let kickChannel = message.guild.channels.find(`name`, `${so.botlog}`);
+      if (!kickChannel) return message.channel.send("Can't find incidents channel.");
+>>>>>>> 2
 
-  message.guild.member(kUser).kick(kReason);
-  kickChannel.send(kickEmbed);
-}
-
-module.exports.help = {
-  name: "kick"
+      message.guild.member(bUser).kick(bReason);
+      kickChannel.send(banEmbed);
+    });
+  }
 }

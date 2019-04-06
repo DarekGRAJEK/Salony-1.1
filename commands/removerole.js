@@ -1,30 +1,39 @@
-const Discord = require("discord.js");
-const errors = require("../utility/error.js");
-
-module.exports.run = async (bot, message, args) => {
-
-  if (!message.member.hasPermission("MANAGE_ROLES")) return errors.noPerms(message, "MANAGE_ROLES");
-  if(args[0] == "help"){
-    message.reply("Usage: !removerole <user> <role>");
-    return;
+const Discord = require("discord.js")
+const stats = require("../modules/stats.js")
+module.exports = class removeRole {
+  constructor() {
+    this.name = 'removerole',
+      this.alias = ['rrole'],
+      this.usage = '?removerole'
   }
-  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!rMember) return errors.cantfindUser(channel);
-  let role = args.join(" ").slice(22);
-  if(!role) return message.reply("Specify a role!").then(m => m.delete(5000));
-  let gRole = message.guild.roles.find(`name`, role);
-  if(!gRole) return errors.notfindRole(message);
 
-  if(!rMember.roles.has(gRole.id)) return message.reply("They don't have that role.").then(m => m.delete(5000));
-  await(rMember.removeRole(gRole.id));
+  async run(bot, message, args) {
 
-  try{
-    await rMember.send(`RIP, you lost the ${gRole.name} role.`)
-  }catch(e){
-    message.channel.send(`RIP to <@${rMember.id}>, We removed ${gRole.name} from them. We tried to DM them, but their DMs are locked.`).then(m => m.delete(5000));
+    stats.findOne({
+      Serverid: message.guild.id,
+      id: message.author.id
+  }, (err, st) => {
+      if (err) console.log(err);
+    if (st.RankBot != "Admin" && st.RankBot != "Owner" && st.RankBot != "BotDev") return message.reply("You don't have permission.");
+  });
+    if (args[0] == "help") {
+      message.reply("Usage: !removerole <user> <role>");
+      return;
+    }
+    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[1]);
+    if (!rMember) return errors.cantfindUser(channel);
+    let role = args.slice(1).join(" ").slice(22);
+    if (!role) return message.reply("Specify a role!").then(m => m.delete(5000));
+    let gRole = message.guild.roles.find(`name`, role);
+    if (!gRole) return errors.notfindRole(message);
+
+    if (!rMember.roles.has(gRole.id)) return message.reply("They don't have that role.").then(m => m.delete(5000));
+    await (rMember.removeRole(gRole.id));
+
+    try {
+      await rMember.send(`RIP, you lost the ${gRole.name} role.`)
+    } catch (e) {
+      message.channel.send(`RIP to <@${rMember.id}>, We removed ${gRole.name} from them. We tried to DM them, but their DMs are locked.`).then(m => m.delete(5000));
+    }
   }
-}
-
-module.exports.help = {
-  name: "removerole"
 }

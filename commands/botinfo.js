@@ -1,28 +1,32 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
-    await message.delete();
-    if(args[0] == "help"){
-        message.reply("Usage: !botinfo");
-       return;
+module.exports = class botinfo {
+    constructor() {
+        this.name = 'botinfo',
+            this.alias = ['bi'],
+            this.usage = '?botinfo'
     }
 
-    let bicon = bot.user.avatarURL;
-    let Color = Math.floor(Math.random() * 999999) + 1;
-    let random = "#" + Color;
+    async run(bot, message, args) {
+        await message.delete();
+        if (args[1] == "help") {
+            message.reply("Usage: !botinfo");
+            return;
+        }
 
-    let botembed = new Discord.RichEmbed()
-    .setDescription("Bot Information")
-    .setColor(random)
-    .setThumbnail(bicon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Prefix (conventional) is", "**$**")
-    .addField("Created by", "DarekGRAJEK")
-    .addField("Version:", "Pre-Alfa *1* (1.6.0)");
+        let bicon = bot.user.avatarURL;
+        let Color = Math.floor(Math.random() * 999999) + 1;
+        let random = "#" + Color;
 
-    message.channel.send(botembed);
+        let botembed = new Discord.RichEmbed()
+            .setDescription("Bot Information")
+            .setColor(random)
+            .setThumbnail(bicon)
+            .addField("Bot Name", bot.user.username)
+            .addField("Prefix (conventional) is", "**$**")
+            .addField("Created by", "DarekGRAJEK")
+            .addField("Version:", "Alfa *1.7* (1.6.0)");
 
-}
- module.exports.help = {
-    name: "botinfo"
+        message.channel.send(botembed);
+    }
 }
