@@ -1,4 +1,4 @@
-const statsed = require("./modules/stats.js");
+const statsed = require("../modules/stats.js");
 module.exports = function (message) {
     this.user = function () {
         statsed.findOne({

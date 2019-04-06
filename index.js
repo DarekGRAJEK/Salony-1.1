@@ -4,7 +4,6 @@ const { CommandHandler } = require("djs-commands");
 const mongodb = require("mongoose");
 require('./SetUpFirst/moneys.js')();
 require('./SetUpFirst/usersetup.js')();
-const statsed = require("./modules/stats.js");
 const soption = require("./modules/serveroptions.js");
 const token = process.env.token;
 const pass = process.env.pass;

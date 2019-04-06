@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const moduled = require("./modules/module.js");
+const moduled = require("../modules/module.js");
 module.exports = function() {
     this.CraftinGame = function() {
         moduled.findOne({
