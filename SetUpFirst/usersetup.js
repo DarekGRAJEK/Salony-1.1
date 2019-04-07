@@ -1,4 +1,5 @@
 const statsed = require("../modules/stats.js");
+const Discord = require('discord.js');
 module.exports = function (message) {
     this.user = function () {
         statsed.findOne({
