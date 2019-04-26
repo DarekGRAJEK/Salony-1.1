@@ -15,6 +15,6 @@ module.exports = class catgirl {
     let pol = new Discord.RichEmbed()
     .setDescription("Cute Anime Cat Girls")
     .setImage(url);
-    message.send(pol);
+    message.channel.send(pol);
   }
 }
