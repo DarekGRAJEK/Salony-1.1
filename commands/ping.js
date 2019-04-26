@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+const sleep = require("system-sleep");
 
 module.exports = class help {
     constructor() {
@@ -13,7 +14,7 @@ module.exports = class help {
             let ping = m.createdTimestamp - message.createdTimestamp;
             let choise = ["Dobry?", "Działa?", "Chyba wszysto działa!"];
             let res = choise[Math.floor(Math.random() * choise.length)];
-
+            sleep(2000);
             m.edit(`${res} Opóżnienie Bota: ${ping} ms, Opóżnienie API: ${Math.round(bot.ping)}ms`);
         });
     }
