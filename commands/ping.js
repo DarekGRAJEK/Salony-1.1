@@ -2,9 +2,9 @@ const Discord = require("discord.js")
 
 module.exports = class help {
     constructor() {
-        this.name = 'help',
-            this.alias = ['h'],
-            this.usage = '?help'
+        this.name = 'ping',
+            this.alias = ['pg'],
+            this.usage = '?ping'
     }
 
     async run(bot, message, args) {
