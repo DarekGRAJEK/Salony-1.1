@@ -10,7 +10,7 @@ module.exports = class catgirl {
 
   async run(bot, message, args) {
     message.delete();
-    let dex = Math.floor(Math.random() * 10) + 1
+    let dex = Math.floor(Math.random() * 10);
     let url = 'https://dawnotemu.000webhostapp.com/catgirl/' + dex + '.jpg';
     let pol = new Discord.RichEmbed()
     .setDescription("Cute Anime Cat Girls")
