@@ -9,15 +9,12 @@ module.exports = class catgirl {
   }
 
   async run(bot, message, args) {
-    var dex = Math.floor(Math.random() * 10) + 1
-    getImageUrls('https://dawnotemu.000webhostapp.com/catgirl/'+ 'dex' + '.jpg', function(err, images) {
-    console.log(dex)
-    if (!err) {
-        console.log('Images found', images.length);
-        console.log(images);
-    }else{
-        console.log('ERROR', err);
-    }
-    });
+    message.delete();
+    let dex = Math.floor(Math.random() * 10) + 1
+    let url = 'https://dawnotemu.000webhostapp.com/catgirl/' + dex + '.jpg';
+    let pol = new Discord.RachEmbed()
+    .setDescription("Cute Anime Cat Girls")
+    .setImage(url);
+    message.send(pol);
   }
 }
