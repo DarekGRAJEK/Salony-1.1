@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const sleep = require("system-sleep");
 
-module.exports = class help {
+module.exports = class ping {
     constructor() {
         this.name = 'ping',
             this.alias = ['pg'],
@@ -15,7 +15,7 @@ module.exports = class help {
             let choise = ["Dobry?", "Działa?", "Chyba wszysto działa!"];
             let res = choise[Math.floor(Math.random() * choise.length)];
             sleep(2000);
-            m.edit(`${res} Opóżnienie Bota: ${ping} ms, Opóżnienie API: ${Math.round(bot.ping)}ms`);
+            m.edit(`${res} Opóżnienie Bota: ${ping}ms, Opóżnienie API: ${Math.round(bot.ping)}ms`);
         });
     }
 }
