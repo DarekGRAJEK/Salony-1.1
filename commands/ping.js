@@ -14,7 +14,7 @@ module.exports = class help {
             let choise = ["Dobry?", "Działa?", "Chyba wszysto działa!"];
             let res = choise[Math.floor(Math.random() * choise.length)];
 
-            m.edit(`${res} Opóżnienie Bota: ${ping}, Opóżnienie API: ${Math.round(bot.ping)}`);
+            m.edit(`${res} Opóżnienie Bota: ${ping} ms, Opóżnienie API: ${Math.round(bot.ping)}ms`);
         });
     }
 }
