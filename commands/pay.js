@@ -15,7 +15,7 @@ module.exports = class pay {
       Serverid: message.guild.id
     }, (err, sop) => {
       if (err) console.log(err);
-      await message.delete();
+      message.delete();
       if (args[1] == "help") {
         message.reply("Usage: !pay <nick> <amounce>");
         return;
