@@ -1,5 +1,6 @@
 const exp = require("../modules/stats.js");
 const discord = require("discord.js");
+const so = require("../modules/serveroptions.js");
 
 module.exports = class stats {
     constructor() {
@@ -9,7 +10,14 @@ module.exports = class stats {
     }
 
     async run(bot, message, args) {
-
+        so.findOne({
+            Serverid: message.guild.id
+        }, (err, sop) => {
+            if (err) console.log(err);
+            if (sop.leveling === "no" && sop.money === "no") {
+                return message.reply("The Modney Module And Leveling Modue is Disabled! Please to contact with Owner to Enable the Modules.");
+            }
+        });
         exp.findOne({
             Serverid: message.guild.id,
             id: message.author.id

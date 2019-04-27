@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const moneyd = require("../modules/stats.js");
+const so = require("../modules/serveroptions.js");
 
 module.exports = class flip {
   constructor() {
@@ -17,7 +18,14 @@ module.exports = class flip {
 
       return;
     }
-
+    so.findOne({
+      Serverid: message.guild.id
+    }, (err, sop) => {
+      if (err) console.log(err);
+      if (sop.games === "no") {
+        return message.reply("The game module is disabed! Please contact with Owner to Enable!");
+      }
+    });
     let replies = ["tails", "eagle"];
     let result = Math.floor((Math.random() * replies.length));
     let PlaceBet = args[2];

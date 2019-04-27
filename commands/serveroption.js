@@ -38,8 +38,11 @@ module.exports = class serveroption {
                     .addField("Annoucemet Channel:", `${sopts.annChannel} (ann)`)
                     .addField("Log Channel:", `${sopts.botlog} (log)`)
                     .addField("Report Channel:", `${sopts.report} (report)`)
-                    .addField("Join Notification", `${sopts.inserver} (join)`)
-                    .addField("Left Notification", `${sopts.outserver} (left)`);
+                    .addField("Join Notification:", `${sopts.inserver} (join)`)
+                    .addField("Left Notification:", `${sopts.outserver} (left)`)
+                    .addField("Games Module:", `${sopts.games} (games)`)
+                    .addField("Dig Game Module:" `${sopts.diggame} (dig)`)
+                    .addField("Money Module:" `${sopts.money} (money)`);
                 message.channel.send(helpEmbed).then(r => r.delete(15000));
             });
             message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
@@ -55,6 +58,12 @@ module.exports = class serveroption {
                     return message.reply("You canceled the process!")
                 } else if (collected.first().content === "report") {
                     reported();
+                } else if (collected.first().content === "games") {
+                    games();
+                } else if (collected.first().content === "dig") {
+                    dig();
+                } else if (collected.first(),content === "money") {
+                    money();
                 } else {
                     return message.reply("Error or Bad Segment!");
                 }
@@ -153,6 +162,9 @@ module.exports = class serveroption {
                         sopts.inserver = collected.first().content;
                         sopts.save().catch(err => console.log(err));
                         message.reply("The segment has been changed!");
+                    } else {
+                        message.reply("Please write a [yes/no]")
+                        joined();
                     }
                 }).catch(err => {
                     return message.reply("Time Out!").then(r => r.delete(4000));
@@ -183,6 +195,9 @@ module.exports = class serveroption {
                         sopts.outserver = collected.first().content;
                         sopts.save().catch(err => console.log(err));
                         message.reply("The segment has been changed!");
+                    } else {
+                        message.reply("Please write a [yes/no]")
+                        outed();
                     }
                 }).catch(err => {
                     return message.reply("Time Out!").then(r => r.delete(4000));
@@ -223,6 +238,103 @@ module.exports = class serveroption {
                 });
             });
         };
+
+        function games() {
+            sopt.findOne({
+                Serverid: message.guild.id
+            }, (err, sopts) => {
+                if (err) console.log(err);
+                const filter = m => m.author.id === message.author.id;
+                let Color = Math.floor(Math.random() * 999999) + 1;
+                let random = "#" + Color;
+                message.reply("Please write a new variable! (or Cancel to canceled the process!)").then(r => r.delete(10000));
+                let newlet = new Discord.RichEmbed()
+                    .setTitle("Games Module")
+                    .setColor(random)
+                    .setDescription("The Segment!")
+                    .addField("Old:", `${sopts.report}`)
+                    .addField("New:", `...`);
+                message.channel.send(newlet).then(r => r.delete(10000));
+                message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
+                    if (collected.first().content === "cancel") {
+                        return message.reply("You canceled the process!")
+                    } else if (collected.first().content === "yes" || collected.first().content === "no") {
+                        sopts.inserver = collected.first().content;
+                        sopts.save().catch(err => console.log(err));
+                        message.reply("The segment has been changed!");
+                    } else {
+                        message.reply("Please write a [yes/no]")
+                        games();
+                    }
+                }).catch(err => {
+                    return message.reply("Time Out!").then(r => r.delete(4000));
+                });
+            });
+        }
+        function dig() {
+            sopt.findOne({
+                Serverid: message.guild.id
+            }, (err, sopts) => {
+                if (err) console.log(err);
+                const filter = m => m.author.id === message.author.id;
+                let Color = Math.floor(Math.random() * 999999) + 1;
+                let random = "#" + Color;
+                message.reply("Please write a new variable! (or Cancel to canceled the process!)").then(r => r.delete(10000));
+                let newlet = new Discord.RichEmbed()
+                    .setTitle("Dig Game Module")
+                    .setColor(random)
+                    .setDescription("The Segment!")
+                    .addField("Old:", `${sopts.report}`)
+                    .addField("New:", `...`);
+                message.channel.send(newlet).then(r => r.delete(10000));
+                message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
+                    if (collected.first().content === "cancel") {
+                        return message.reply("You canceled the process!")
+                    } else if (collected.first().content === "yes" || collected.first().content === "no") {
+                        sopts.inserver = collected.first().content;
+                        sopts.save().catch(err => console.log(err));
+                        message.reply("The segment has been changed!");
+                    } else {
+                        message.reply("Please write a [yes/no]")
+                        dig();
+                    }
+                }).catch(err => {
+                    return message.reply("Time Out!").then(r => r.delete(4000));
+                });
+            });
+        }
+        function money() {
+            sopt.findOne({
+                Serverid: message.guild.id
+            }, (err, sopts) => {
+                if (err) console.log(err);
+                const filter = m => m.author.id === message.author.id;
+                let Color = Math.floor(Math.random() * 999999) + 1;
+                let random = "#" + Color;
+                message.reply("Please write a new variable! (or Cancel to canceled the process!)").then(r => r.delete(10000));
+                let newlet = new Discord.RichEmbed()
+                    .setTitle("Money Module")
+                    .setColor(random)
+                    .setDescription("The Segment!")
+                    .addField("Old:", `${sopts.report}`)
+                    .addField("New:", `...`);
+                message.channel.send(newlet).then(r => r.delete(10000));
+                message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {
+                    if (collected.first().content === "cancel") {
+                        return message.reply("You canceled the process!")
+                    } else if (collected.first().content === "yes" || collected.first().content === "no") {
+                        sopts.inserver = collected.first().content;
+                        sopts.save().catch(err => console.log(err));
+                        message.reply("The segment has been changed!");
+                    } else {
+                        message.reply("Please write a [yes/no]")
+                        money();
+                    }
+                }).catch(err => {
+                    return message.reply("Time Out!").then(r => r.delete(4000));
+                });
+            });
+        }
     }
 }
 

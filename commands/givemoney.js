@@ -1,6 +1,7 @@
-const Discord = require("discord.js")
+const Discord = require("discord.js");
 const moneyd = require("../modules/stats.js");
-const stats = require("../modules/stats.js")
+const stats = require("../modules/stats.js");
+const so = require("../modules/serveroptions.js");
 module.exports = class givemoney {
   constructor() {
     this.name = 'givemoney',
@@ -14,6 +15,14 @@ module.exports = class givemoney {
       message.reply("Usage: !givemoney <amount>");
       return;
     }
+    so.findOne({
+      Serverid: message.guild.id
+    }, (err, sop) => {
+      if (err) console.log(err);
+      if (sop.money === "no") {
+        return message.reply("The Money Module is Disabled. Please to contact with Owner to Enabled this.");
+      }
+    });
     stats.findOne({
       Serverid: message.guild.id,
       id: message.author.id

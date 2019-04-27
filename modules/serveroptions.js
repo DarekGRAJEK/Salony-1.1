@@ -5,7 +5,11 @@ const xpShema = mongoose.Schema({
     botlog: String,
     inserver: String,
     outserver: String,
-    report: String
+    report: String,
+    leveling: String,
+    games: String,
+    diggame: String,
+    money: String
 });
 
 module.exports = mongoose.model("serverOptions", xpShema);

@@ -1,5 +1,6 @@
-const Discord = require("discord.js")
-const modules = require("../modules/module.js")
+const Discord = require("discord.js");
+const modules = require("../modules/module.js");
+const so = require(`../modules/serveroptions.js`);
 module.exports = class inventory {
     constructor() {
         this.name = 'inv',
@@ -8,6 +9,14 @@ module.exports = class inventory {
     }
 
     async run(bot, message, args) {
+        so.findOne({
+            Serverid: message.guild.id
+        }, (err, sop) => {
+            if (err) console.log(err);
+            if (sop.diggame === "no") {
+                return message.reply("The Dig Game Module is Disabled! Please contact with Bot Owner to Enable this Module to Your Server!")
+            }
+        });
 
         modules.findOne({
             idserver: message.guild.id,

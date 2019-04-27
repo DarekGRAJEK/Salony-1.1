@@ -6,6 +6,14 @@ module.exports = function(message) {
             idserver: message.guild.id,
             idplayer: message.author.id
         }, (err, modules) => {
+            so.findOne({
+                Serverid: message.guild.id
+            }, (err, sop) => {
+                if (err) console.log(err);
+                if (sop.diggame === "no") {
+                    return;
+                }
+            });
             if (err) console.log(err);
             if (!modules) {
                 const newmodule = new moduled({
