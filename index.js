@@ -69,7 +69,8 @@ function detect(message) {
         id: message.author.id
     }, (err, exp) => {
         if (err) console.log(err);
-        if (message.author.id === message.guild.ownerID) {
+        if (!exp) var folt = true; else flot = false;
+        if (message.author.id === message.guild.ownerID && folt === true) {
             const newExp = new exps({
                 Serverid: message.guild.id,
                 id: message.author.id,
@@ -101,7 +102,9 @@ function detect(message) {
                 }
             });
         }
+        if (folt === false) {
+            CraftinGame();
+            user();
+        }    
     });
-    CraftinGame();
-    user();
 }
