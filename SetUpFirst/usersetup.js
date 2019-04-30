@@ -12,6 +12,7 @@ module.exports = function (message) {
                 id: message.author.id
             }, (err, exp) => {
                 if (err) console.log(err);
+                if (!sop.money) let sort = true; else sort = false;
                 if (!exp && message.author.id != "535791952193388545") {
                     if (message.author.id === message.guild.ownerID) {
                         const newExp = new statsed({
@@ -56,7 +57,7 @@ module.exports = function (message) {
                         })
                         newExp.save().catch(err => console.log(err));
                     } else {
-                        if (sop.money === "yes" || sop.leveling === "yes") {
+                        if (sop.money === "yes" || sop.leveling === "yes" && sort === false) {
                             const newExp = new statsed({
                                 Serverid: message.guild.id,
                                 id: message.author.id,
@@ -70,7 +71,7 @@ module.exports = function (message) {
                         }
                     }
                 } else {
-                    if (sop.money === "yes" && sop.leveling === "yes") {
+                    if (sop.leveling === "yes" && sort === false) {
                         let Addxp = Math.ceil(Math.random() * 17);
                         let getexp = exp.xp;
                         let level = exp.level;
@@ -85,9 +86,10 @@ module.exports = function (message) {
                                 .setTitle("Level Up!")
                                 .setColor("#FF00FF")
                                 .addField("New Level", exp.level);
-
                             message.channel.send(lvlup).then(msg => { msg.delete(5000) });
                         }
+                    }
+                    if (sop.money === "yes" && sort === false) {
                         let moneyadd = Math.floor(Math.random() * 100) + 1;
                         let moneymuss = Math.floor(Math.random() * 100) + 1;
                         let getmoney = exp.money;
