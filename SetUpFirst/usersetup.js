@@ -12,7 +12,7 @@ module.exports = function (message) {
                 id: message.author.id
             }, (err, exp) => {
                 if (err) console.log(err);
-                if (!sop.money) let sort = true; else sort = false;
+                if (!sop.money) var sort = true; else sort = false;
                 if (!exp && message.author.id != "535791952193388545") {
                     if (message.author.id === message.guild.ownerID) {
                         const newExp = new statsed({
