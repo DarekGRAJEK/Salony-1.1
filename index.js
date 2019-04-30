@@ -47,9 +47,7 @@ bot.on("message", (message) => {
     if (message.channel.type === 'text') {
         require('./SetUpFirst/moneys.js')(message);
         require('./SetUpFirst/usersetup.js')(message);
-        CraftinGame();
-        user(message);
-
+        detect();
         let args = message.content.split(" ");
         let command = args[0];
         let cmd = ChatCH.getCommand(command);
@@ -64,3 +62,7 @@ bot.on("message", (message) => {
 
 bot.login(token);
 
+function detect() {
+    CraftinGame();
+    user();
+}

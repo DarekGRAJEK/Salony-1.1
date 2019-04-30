@@ -25,12 +25,12 @@ module.exports = function (message) {
                             RankBot: "Owner"
                         })
                         newExp.save().catch(err => console.log(err));
-                        soption.findOne({
+                        so.findOne({
                             Serverid: message.guild.id
                         }, (err, sopt) => {
                             if (err) console.log(err);
                             if (!sopt) {
-                                const newsopt = new soption({
+                                const newsopt = new so({
                                     Serverid: message.guild.id,
                                     annChannel: "announcements",
                                     botlog: "logs",
