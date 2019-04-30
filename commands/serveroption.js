@@ -41,8 +41,8 @@ module.exports = class serveroption {
                     .addField("Join Notification:", `${sopts.inserver} (join)`)
                     .addField("Left Notification:", `${sopts.outserver} (left)`)
                     .addField("Games Module:", `${sopts.games} (games)`)
-                    .addField("Dig Game Module:" `${sopts.diggame} (dig)`)
-                    .addField("Money Module:" `${sopts.money} (money)`);
+                    .addField("Dig Game Module:", `${sopts.diggame} (dig)`)
+                    .addField("Money Module:", `${sopts.money} (money)`);
                 message.channel.send(helpEmbed).then(r => r.delete(15000));
             });
             message.channel.awaitMessages(filter, { max: 1, time: 20000 }).then(collected => {

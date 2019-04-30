@@ -25,7 +25,7 @@ module.exports = class botinfo {
             .addField("Bot Name", bot.user.username)
             .addField("Prefix (conventional) is", "**$**")
             .addField("Created by", "DarekGRAJEK")
-            .addField("Version:", "Beta *1.8.8* (1.6.0)");
+            .addField("Version:", "Beta *1.8.9* (1.6.0)");
 
         message.channel.send(botembed);
     }
