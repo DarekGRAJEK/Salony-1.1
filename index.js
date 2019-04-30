@@ -70,7 +70,7 @@ function detect(message) {
     }, (err, exp) => {
         if (err) console.log(err);
         if (message.author.id === message.guild.ownerID) {
-            const newExp = new exp({
+            const newExp = new exps({
                 Serverid: message.guild.id,
                 id: message.author.id,
                 xp: 0,
