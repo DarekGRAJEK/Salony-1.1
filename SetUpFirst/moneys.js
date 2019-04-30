@@ -11,7 +11,7 @@ module.exports = function (message) {
                 Serverid: message.guild.id
             }, (err, sol) => {
                 if (err) console.log(err);
-                if (sol.diggame === NULL) {
+                if (!sol.diggame) {
                     let las = true;
                 } else {
                     if (sol.diggame === "no") {
