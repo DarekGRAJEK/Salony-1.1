@@ -9,9 +9,9 @@ module.exports = function(message) {
         }, (err, modules) => {
             so.findOne({
                 Serverid: message.guild.id
-            }, (err, sop) => {
+            }, (err, sol) => {
                 if (err) console.log(err);
-                if (sop.diggame === "no") {
+                if (sol.diggame === "no") {
                     return;
                 }
             });
