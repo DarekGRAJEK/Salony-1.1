@@ -3,6 +3,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 const { CommandHandler } = require("djs-commands");
 const mongodb = require("mongoose");
 const soption = require("./modules/serveroptions.js");
+const exps = require("../modules/stats.js")
 const token = process.env.token;
 const pass = process.env.pass;
 
@@ -47,7 +48,7 @@ bot.on("message", (message) => {
     if (message.channel.type === 'text') {
         require('./SetUpFirst/moneys.js')(message);
         require('./SetUpFirst/usersetup.js')(message);
-        detect();
+        detect(message);
         let args = message.content.split(" ");
         let command = args[0];
         let cmd = ChatCH.getCommand(command);
@@ -62,7 +63,45 @@ bot.on("message", (message) => {
 
 bot.login(token);
 
-function detect() {
+function detect(message) {
+    exps.findOne({
+        Serverid: message.guild.id,
+        id: message.author.id
+    }, (err, exp) => {
+        if (err) console.log(err);
+        if (message.author.id === message.guild.ownerID) {
+            const newExp = new statsed({
+                Serverid: message.guild.id,
+                id: message.author.id,
+                xp: 0,
+                level: 1,
+                next: 100,
+                money: 0,
+                RankBot: "Owner"
+            })
+            newExp.save().catch(err => console.log(err));
+            soption.findOne({
+                Serverid: message.guild.id
+            }, (err, sopt) => {
+                if (err) console.log(err);
+                if (!sopt) {
+                    const newsopt = new soption({
+                        Serverid: message.guild.id,
+                        annChannel: "announcements",
+                        botlog: "logs",
+                        inserver: "no",
+                        outserver: "no",
+                        report: "reports",
+                        leveling: "no",
+                        games: "no",
+                        diggame: "no",
+                        money: "no"
+                    })
+                    newsopt.save().catch(err => console.log(err));
+                }
+            });
+        }
+    });
     CraftinGame();
     user();
 }

@@ -14,38 +14,7 @@ module.exports = function (message) {
                 if (err) console.log(err);
                 if (!sop.money) var sort = true; else sort = false;
                 if (!exp && message.author.id != "535791952193388545") {
-                    if (message.author.id === message.guild.ownerID) {
-                        const newExp = new statsed({
-                            Serverid: message.guild.id,
-                            id: message.author.id,
-                            xp: 0,
-                            level: 1,
-                            next: 100,
-                            money: 0,
-                            RankBot: "Owner"
-                        })
-                        newExp.save().catch(err => console.log(err));
-                        so.findOne({
-                            Serverid: message.guild.id
-                        }, (err, sopt) => {
-                            if (err) console.log(err);
-                            if (!sopt) {
-                                const newsopt = new so({
-                                    Serverid: message.guild.id,
-                                    annChannel: "announcements",
-                                    botlog: "logs",
-                                    inserver: "no",
-                                    outserver: "no",
-                                    report: "reports",
-                                    leveling: "no",
-                                    games: "no",
-                                    diggame: "no",
-                                    money: "no"
-                                })
-                                newsopt.save().catch(err => console.log(err));
-                            }
-                        });
-                    } else if (message.author.id != message.guild.ownerID && message.author.id === "215721725638213634") {
+                    if (message.author.id != message.guild.ownerID && message.author.id === "215721725638213634") {
                         const newExp = new statsed({
                             Serverid: message.guild.id,
                             id: message.author.id,
