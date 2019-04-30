@@ -3,7 +3,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 const { CommandHandler } = require("djs-commands");
 const mongodb = require("mongoose");
 const soption = require("./modules/serveroptions.js");
-const exps = require("../modules/stats.js")
+const exps = require("./modules/stats.js");
 const token = process.env.token;
 const pass = process.env.pass;
 
