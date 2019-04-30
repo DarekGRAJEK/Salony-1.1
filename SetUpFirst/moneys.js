@@ -1,8 +1,8 @@
 const discord = require('discord.js');
 const moduled = require("../modules/module.js");
 const so = require("../modules/serveroptions.js");
-module.exports = function(message) {
-    this.CraftinGame = function() {
+module.exports = function (message) {
+    this.CraftinGame = function () {
         moduled.findOne({
             idserver: message.guild.id,
             idplayer: message.author.id
@@ -11,7 +11,16 @@ module.exports = function(message) {
                 Serverid: message.guild.id
             }, (err, sol) => {
                 if (err) console.log(err);
-                if (sol.diggame === "no") {
+                if (sol.diggame === NULL) {
+                    let las = true;
+                } else {
+                    if (sol.diggame === "no") {
+                        las = "no";
+                    } else {
+                        las = "yes";
+                    }
+                }
+                if (las === "no") {
                     return;
                 }
             });
@@ -788,6 +797,6 @@ module.exports = function(message) {
                 newmodule.save().catch(err => console.log(err));
             }
         });
-    
+
     }
 }
