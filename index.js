@@ -24,7 +24,7 @@ bot.on("guildMemberAdd", async member => {
         Serverid: member.guild.id
     }, (err, so) => {
         if (err) console.log(err);
-        if (so.inserver === "yes") {
+        if (so.inserver === "yes" && folt === false) {
             let channel = member.guild.channels.find(`name`, "logi-publiczne");
             channel.send(`${member} joined to server!`);
         } else {
@@ -69,7 +69,7 @@ function detect(message) {
         id: message.author.id
     }, (err, exp) => {
         if (err) console.log(err);
-        if (!exp) var folt = true; else flot = false;
+        if (!exp) var folt = true; else folt = false;
         if (message.author.id === message.guild.ownerID && folt === true) {
             const newExp = new exps({
                 Serverid: message.guild.id,
@@ -105,6 +105,6 @@ function detect(message) {
         if (folt === false) {
             CraftinGame();
             user();
-        }    
+        }
     });
 }
