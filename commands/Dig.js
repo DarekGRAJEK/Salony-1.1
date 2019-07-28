@@ -1,5 +1,5 @@
 const moduled = require("../modules/module.js");
-
+const so = require("../modules/serveroptions.js");
 module.exports = class dig {
     constructor() {
         this.name = 'dig',
@@ -14,7 +14,14 @@ module.exports = class dig {
             idplayer: message.author.id
         }, (err, modules) => {
             if (err) console.log(err);
-
+            so.findOne({
+                Serverid: message.guild.id
+            }, (err, sop) => {
+                if (err) console.log(err);
+                if (sop.diggame === "no") {
+                    return;
+                }
+            });
             let Color = Math.floor(Math.random() * 999999) + "1";
             let random = "#" + Color;
 
