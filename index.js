@@ -36,16 +36,15 @@ bot.on("guildMemberAdd", async member => {
 });
 
 bot.on("guildMemberRemove", async member => {
-    console.log("User Leave!!!");
-
     let channel = member.guild.channels.find(`name`, "logi-publiczne");
-    channel.send(`${member.user.username} wyszedł z serwera!`);
+    channel.send(`${member.user.username} left the server!`);
 
 });
 bot.on("message", (message) => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
     if (message.channel.type === 'text') {
+        
         require('./SetUpFirst/moneys.js')(message);
         require('./SetUpFirst/usersetup.js')(message);
         detect(message);
