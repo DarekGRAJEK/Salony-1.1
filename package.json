@@ -16,7 +16,7 @@
     "get-image-urls": "^1.0.5",
     "hasha": "^5.0.0",
     "is-stream": "^2.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "mkdirp": "^0.5.1",
     "mongoose": "^5.5.4",
     "ms": "^2.1.1",
